@@ -1,0 +1,149 @@
+.ApiccoLanding {
+  /* ---- CSS Variables Section ----- */
+  --pri-color: #caa745;
+  --shape-overflow: 10%;
+  /* -------------------------------- */
+  padding: 40px;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navContainer {
+  flex: 1 1 100%;
+  margin-bottom: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 30px;
+  font-weight: 400;
+}
+
+.hammy {
+  position: relative;
+  width: 23px;
+  height: 2px;
+  background: #000;
+}
+
+.hammy::before,
+.hammy::after {
+  position: absolute;
+  content: '';
+  width: 100%;
+  height: 2px;
+  background: #000;
+}
+
+.hammy::before {
+  top: -7px;
+}
+
+.hammy::after {
+  top: 7px;
+}
+
+.contentContainer {
+  flex: 1 1 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.subHeading {
+  color: var(--pri-color);
+  font-size: calc(30px + (35 - 30) * (100vw - 320px) / (1000 - 320));
+}
+
+.mainHeading {
+  font-size: calc(50px + (65 - 50) * (100vw - 320px) / (1000 - 320));
+  font-weight: 500;
+  line-height: 90%;
+  width: min-content;
+  padding: 40px 0;
+}
+
+.link {
+  font-size: calc(12px + (20 - 12) * (100vw - 320px) / (1000 - 320));
+  padding: 15px 0;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+.link::after {
+  content: '';
+  background: var(--pri-color);
+  position: absolute;
+  width: 100%;
+  height: 2px;
+  top: 100%;
+  left: 0;
+  transition: 500ms;
+  transform-origin: 100% 0;
+}
+
+.link:hover::after {
+  transform: scaleX(0);
+}
+
+.imgContainer {
+  flex: 1 1 50%;
+  position: relative;
+  margin-bottom: 100px;
+}
+
+.image {
+  vertical-align: middle;
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+  transform: translateX(-10%);
+  box-shadow: 4px 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.shape {
+  position: absolute;
+  right: 0;
+  top: calc(var(--shape-overflow) * -1);
+  bottom: 50px;
+  background: var(--pri-color);
+  width: 30%;
+  height: calc((var(--shape-overflow) * 2) + 100%);
+  z-index: -1;
+}
+
+@media (max-width: 1000px) {
+  .ApiccoLanding {
+    flex-direction: column;
+  }
+
+  .contentContainer {
+    flex: 1 1 100%;
+  }
+
+  .subHeading {
+    font-size: calc(16px + (30 - 16) * (100vw - 320px) / (1000 - 320));
+  }
+
+  .mainHeading {
+    padding: 20px 0;
+    font-size: calc(20px + (60 - 20) * (100vw - 320px) / (1000 - 320));
+    align-self: flex-start;
+    width: max-content;
+  }
+
+  .link {
+    font-size: calc(12px + (20 - 12) * (100vw - 320px) / (1000 - 320));
+  }
+
+  .imgContainer {
+    align-self: center;
+    max-width: 80%;
+    flex: 1 1 100%;
+    transform: translateX(10%);
+  }
+}

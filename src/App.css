@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Raleway:300,400,500');
+:root {
+  --gallery-gap: 15px;
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+:focus {
+  outline: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Montserrat, Arial, Helvetica, sans-serif;
+  font-weight: 100;
+}
+
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+.pageWrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.Routes {
+  margin-bottom: auto;
+  height: 100%;
+}
+
+.HomeLink {
+  text-decoration: none;
+  color: inherit;
+  position: relative;
+}
+
+.placeHolderToggler {
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  position: absolute;
+  font-size: 60px;
+}
+
+.flexLinks {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 -10px 10px -10px rgba(0, 0, 0, 0.12) inset;
+  margin-bottom: 20px;
+}
+
+.flexLink {
+  text-decoration: none;
+  color: inherit;
+  padding: 25px;
+  transition: all 200ms;
+}
+
+.flexLink:hover {
+  opacity: 0.5;
+}
+
+.close {
+  display: none;
+}
+
+@media (max-width: 666px) {
+  .flexLinks {
+    flex-direction: column;
+    margin: 0 20px;
+  }
+  .flexLink {
+    text-align: center;
+    width: 100%;
+    border-bottom: 2px solid #e4e4e4;
+  }
+}

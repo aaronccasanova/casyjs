@@ -1,0 +1,50 @@
+.HourGlassText {
+  background: #eeb65d;
+  max-height: 100%;
+  margin: 40px;
+  padding: 40px;
+  position: relative;
+}
+
+.HourGlassText > * {
+  display: block;
+  font-weight: 800;
+  text-align: center;
+  overflow: hidden;
+}
+
+.four {
+  width: 100%;
+  font-size: 5rem;
+  line-height: 0.9;
+  letter-spacing: 1.5vw;
+}
+.three {
+  font-size: 4.5rem;
+  line-height: 0.7;
+  letter-spacing: 1.2vw;
+}
+.two {
+  font-size: 4rem;
+  line-height: 0.6;
+  letter-spacing: 1vw;
+}
+.one {
+  font-size: 3.5rem;
+  line-height: 0.45;
+  letter-spacing: 0.8vw;
+}
+
+.image {
+  width: 20%;
+  display: block;
+  margin: 10px auto;
+  object-fit: cover;
+}
+
+.casanova {
+  position: absolute;
+  top: 15%;
+  left: -40px;
+  transform: rotate(-90deg);
+}

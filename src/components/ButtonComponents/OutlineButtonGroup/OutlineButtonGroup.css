@@ -1,0 +1,37 @@
+.outlineButtonGroup {
+  /* ---- CSS Variables Section ----- */
+  --pri-color: #5f9ea0;
+  --sec-color: #ffffff;
+  --font-color: var(--pri-color);
+  --border-width: 2px;
+  --trans-speed: 250ms;
+  /* -------------------------------- */
+  border: 2px solid var(--pri-color);
+  border-radius: 5px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+}
+
+.button {
+  flex: auto;
+  font-size: 30px;
+  margin: calc(var(--border-width) * -1);
+  border: 2px solid var(--pri-color);
+  padding: 10px 30px;
+  color: var(--font-color);
+  cursor: pointer;
+  transition: background-color var(--trans-speed),
+    color calc(var(--trans-speed) * 1.2);
+}
+
+.button:hover {
+  color: var(--sec-color);
+  background: var(--pri-color);
+}
+
+@media (max-width: 500px) {
+  .outlineButtonGroup {
+    flex-direction: column;
+  }
+}

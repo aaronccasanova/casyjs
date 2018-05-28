@@ -1,0 +1,41 @@
+.NotFound {
+  width: 100%;
+  height: 100vh;
+  margin: 20px auto 40px;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.contentContainer {
+  max-width: 1111px;
+  max-height: 60%;
+  background: black;
+  position: relative;
+}
+
+.image {
+  object-fit: cover;
+  display: block;
+  width: 100%;
+  height: 100%;
+  opacity: 0.55;
+}
+
+.mainHeading,
+.subHeading {
+  color: white;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.mainHeading {
+  font-weight: bold;
+  top: 23%;
+}
+
+.subHeading {
+  white-space: nowrap;
+  top: 33%;
+}

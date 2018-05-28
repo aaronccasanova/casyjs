@@ -1,0 +1,47 @@
+.CSSTransitionEx {
+  /* ---------For Editing Layout---------- */
+  border: 2px solid steelblue;
+  /* ------------------------------------- */
+}
+
+.showBtn {
+  display: inline-block;
+  text-align: center;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: #20759c;
+  color: white;
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.showBtn:hover {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+  background: #2785b1;
+}
+
+.square {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 99;
+  width: calc(250px + (500 - 250) * (100vw - 320px) / (960-320));
+  height: 100vh;
+  background: cadetblue;
+  transform: translateX(101%);
+  transition: all 400ms ease;
+}
+
+.squareEnter,
+.squareEnterActive,
+.squareEnterDone {
+  transform: translateX(0%);
+}
+
+.squareExit,
+.squareExitActive,
+.squareExitDone {
+  transform: translateX(101%);
+}

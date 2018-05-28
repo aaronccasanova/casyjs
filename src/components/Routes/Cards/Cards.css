@@ -1,0 +1,27 @@
+.Cards {
+  margin: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.Cards>* {
+  margin: 15px 0;
+}
+
+.PoppingCard {
+  display: flex;
+  flex-direction: row;
+}
+
+.PoppingCard>* {
+  margin: 25px;
+}
+
+@media (max-width: 923px) {
+  .PoppingCard {
+    flex-direction: column;
+  }
+}

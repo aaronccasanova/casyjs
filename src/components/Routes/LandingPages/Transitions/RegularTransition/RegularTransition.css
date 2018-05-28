@@ -1,0 +1,47 @@
+.RegularTransition {
+  /* ---------For Editing Layout---------- */
+  border: 2px solid cadetblue;
+  /* ------------------------------------- */
+}
+
+.showBtn {
+  display: inline-block;
+  margin: 10px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  background: #20759c;
+  color: white;
+  cursor: pointer;
+  transition: 250ms;
+}
+
+.showBtn:hover {
+  box-shadow: 0 0 0 rgba(0, 0, 0, 0.3);
+  background: #2785b1;
+}
+
+.square {
+  background: indianred;
+  height: 100px;
+  opacity: 1;
+  transition: all 1000ms ease;
+}
+
+.square.entering {
+  opacity: 1;
+  transform: translateX(0%);
+}
+
+.square.entered {
+  background: lightsteelblue;
+}
+
+.square.exiting {
+  background: cadetblue;
+}
+
+.square.exited {
+  opacity: 0;
+  transform: translateX(-100%);
+}

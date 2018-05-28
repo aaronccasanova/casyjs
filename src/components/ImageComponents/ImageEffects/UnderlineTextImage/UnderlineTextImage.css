@@ -1,0 +1,59 @@
+.imageContainer {
+  /* ---- CSS Variables Section ----- */
+  --img-height: 200px;
+  --trans-speed: 300ms;
+  --bottom-left-dist: 25px;
+  --underline-gap: 10px;
+  --underline-size: 4px;
+  /* -------------------------------- */
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  /*
+  note: display: block & vertical-align: middle||bottom
+  Overide images default inline
+  (gets rid of visible 2px background color of container);
+  
+  vertical-align: middle;
+  display: block; // not using block in case I want to use flexbox
+  */
+  vertical-align: middle;
+  object-fit: cover;
+  width: 100%;
+  height: var(--img-height);
+  transition: transform var(--trans-speed) ease-in;
+}
+
+.imageContainer:hover .image {
+  transform: scale(1.03);
+}
+
+.text {
+  position: absolute;
+  bottom: var(--bottom-left-dist);
+  left: calc(10px + (20 - 10) * (100vw - 320px) / (750 - 320));
+  /* left: var(--bottom-left-dist); */
+  padding-bottom: var(--underline-gap);
+  z-index: 1;
+  color: snow;
+  font-size: calc(14px + (18 - 14) * (100vw - 320px) / (750 - 320));
+}
+
+.text::before {
+  content: '';
+  background: snow;
+  position: absolute;
+  top: 100%;
+  transform: translateY(-50%);
+  width: 50%;
+  height: var(--underline-size);
+  transition: width var(--trans-speed) ease-in;
+}
+
+.imageContainer:hover .text::before {
+  width: 100%;
+}

@@ -1,0 +1,49 @@
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Raleway:300,400,500');
+
+.SingleTitleNav {
+  /* ---- CSS Variables Section ----- */
+  --nav-height: 120px;
+  --underline-color: indianred;
+  --underline-gap: 115%;
+  --underline-thickness: 4px;
+  --extended-underline: 10px;
+  --trans-speed: 250ms;
+  --trans-delay: 300ms;
+  /* -------------------------------- */
+  width: 100%;
+  height: var(--nav-height);
+  box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.164);
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.text {
+  font-family: raleway;
+  position: relative;
+}
+
+.text::before {
+  content: '';
+  background: var(--underline-color);
+  position: absolute;
+  width: 0;
+  height: var(--underline-thickness);
+  top: 50%;
+  left: calc(var(--extended-underline) * -1);
+  z-index: -1;
+  transition: width var(--trans-speed) ease-out,
+    top var(--trans-speed) var(--trans-delay) ease-in;
+}
+
+.SingleTitleNav:hover .text::before {
+  width: calc(100% + var(--extended-underline) * 2);
+  top: var(--underline-gap);
+}
+
+.dropDown {
+  width: 100%;
+  height: 200px;
+  background: lightsteelblue;
+}
