@@ -59,6 +59,21 @@ const Home = () => {
           allowfullscreen
         />
       </VideoWrapper>
+      <VideoWrapper>
+        <VideoHeading>
+          Any Screen Size<br />
+          <span>All in one file!</span>
+        </VideoHeading>
+        <HowToVideo
+          title="Responsive CPComponents"
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/RUDoyGx5gbQ?rel=0"
+          frameborder="0"
+          allow="autoplay; encrypted-media"
+          allowfullscreen
+        />
+      </VideoWrapper>
     </div>
   );
 };
