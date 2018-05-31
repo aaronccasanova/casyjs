@@ -45,47 +45,67 @@ const ComponentName = styled.h2`
   border-bottom: 2px solid #eee;
 `;
 
+const ComponentWrapper = styled.div`
+  margin: 25px 0;
+`;
+
 const Buttons = () => {
   return (
     <Wrapper>
       <Section>
         <ComponentName>DownButton</ComponentName>
-        <DownButton />
+        <ComponentWrapper>
+          <DownButton />
+        </ComponentWrapper>
         <CopyButton id="Buttons/DownButton" />
       </Section>
       <Section>
         <ComponentName>DarkenButton</ComponentName>
-        <DarkenButton>Hello</DarkenButton>
-        <CopyButton />
+        <ComponentWrapper>
+          <DarkenButton>Hello</DarkenButton>
+        </ComponentWrapper>`
+        <CopyButton id="Buttons/DarkenButton" />
       </Section>
       <Section>
         <ComponentName>OutlineButton</ComponentName>
-        <OutlineButton />
-        <CopyButton />
+        <ComponentWrapper>
+          <OutlineButton>Switcheroo</OutlineButton>
+        </ComponentWrapper>
+        <CopyButton id="Buttons/OutlineButton" />
       </Section>
       <Section>
         <ComponentName>BlockButton</ComponentName>
-        <BlockButton />
-        <CopyButton />
+        <ComponentWrapper>
+          <BlockButton>100% Contained</BlockButton>
+        </ComponentWrapper>
+        <CopyButton id="Buttons/BlockButton" />
       </Section>
       <Section>
         <ComponentName>OutlineButtonGroup</ComponentName>
-        <OutlineButtonGroup />
-        <CopyButton />
+        <ComponentWrapper>
+          <OutlineButtonGroup />
+        </ComponentWrapper>
+        <CopyButton id="Buttons/OutlineButtonGroup" />
       </Section>
       <Section>
         <ComponentName>DarkenButtonGroup</ComponentName>
-        <DarkenButtonGroup />
-        <CopyButton />
+        <ComponentWrapper>
+          <DarkenButtonGroup />
+        </ComponentWrapper>
+        <CopyButton id="Buttons/DarkenButtonGroup" />
       </Section>
       <Section>
         <ComponentName>SlideArrowButton</ComponentName>
-        <SlideArrowButton />
-        <CopyButton />
+        <ComponentWrapper>
+          <SlideArrowButton>Move Aside</SlideArrowButton>
+        </ComponentWrapper>
+        <CopyButton id="Buttons/SlideArrowButton" />
       </Section>
       <Section>
         <ComponentName>AniColorLink</ComponentName>
-        <AniColorLink href="#">Campground</AniColorLink>
+        <ComponentWrapper>
+          <AniColorLink href="#">Campground</AniColorLink>
+        </ComponentWrapper>
         <CopyButton id="Links/AniColorLink" />
       </Section>
     </Wrapper>
