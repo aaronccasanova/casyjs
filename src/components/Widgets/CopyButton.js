@@ -3,15 +3,15 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const FormWrapper = styled.form`
+  @import url('https://fonts.googleapis.com/css?family=Poppins:300');
   background: white;
-  width: 200px;
-  height: 60px;
-  margin: 50px;
+  width: 120px;
+  height: 50px;
   position: relative;
   overflow: hidden;
   border-radius: 5px;
-  border: 1px solid #8e8e8e;
-  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.08);
+  border: 1px solid #d6d6d6;
+  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.06);
 
   & > * {
     position: absolute;
@@ -27,9 +27,13 @@ const HiddenInput = styled.textarea`
 `;
 
 const Button = styled.button`
+  font-family: 'Poppins', sans-serif;
+  color: #5b5b5b;
+  font-weight: 300;
   font-size: 20px;
-  width: 100%;
-  height: 100%;
+  width: 110%;
+  height: 110%;
+  cursor: pointer;
 
   &:hover {
     background: #e4e4e4;

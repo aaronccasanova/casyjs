@@ -16,18 +16,22 @@ const Wrapper = styled.div`
   padding: 20px 0;
   background: #f9f9f9;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
   justify-content: center;
-  align-items: stretch;
+
+  & > * {
+    flex: 1 1 auto;
+  }
 `;
 
 const Section = styled.section`
   background: white;
   padding: 30px;
   margin: 20px;
+  min-height: 300px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
   border: 1px solid #eeeeee;
@@ -39,7 +43,6 @@ const ComponentName = styled.h2`
   text-align: center;
   padding: 10px;
   border-bottom: 2px solid #eee;
-  margin-bottom: 30px;
 `;
 
 const Buttons = () => {
@@ -48,30 +51,37 @@ const Buttons = () => {
       <Section>
         <ComponentName>DownButton</ComponentName>
         <DownButton />
+        <CopyButton />
       </Section>
       <Section>
         <ComponentName>DarkenButton</ComponentName>
         <DarkenButton />
+        <CopyButton />
       </Section>
       <Section>
         <ComponentName>OutlineButton</ComponentName>
         <OutlineButton />
+        <CopyButton />
       </Section>
       <Section>
         <ComponentName>BlockButton</ComponentName>
         <BlockButton />
+        <CopyButton />
       </Section>
       <Section>
         <ComponentName>OutlineButtonGroup</ComponentName>
         <OutlineButtonGroup />
+        <CopyButton />
       </Section>
       <Section>
         <ComponentName>DarkenButtonGroup</ComponentName>
         <DarkenButtonGroup />
+        <CopyButton />
       </Section>
       <Section>
         <ComponentName>SlideArrowButton</ComponentName>
         <SlideArrowButton />
+        <CopyButton />
       </Section>
       <Section>
         <ComponentName>AniColorLink</ComponentName>
