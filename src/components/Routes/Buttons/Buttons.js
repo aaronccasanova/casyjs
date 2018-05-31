@@ -51,11 +51,11 @@ const Buttons = () => {
       <Section>
         <ComponentName>DownButton</ComponentName>
         <DownButton />
-        <CopyButton />
+        <CopyButton id="Buttons/DownButton" />
       </Section>
       <Section>
         <ComponentName>DarkenButton</ComponentName>
-        <DarkenButton />
+        <DarkenButton>Hello</DarkenButton>
         <CopyButton />
       </Section>
       <Section>
