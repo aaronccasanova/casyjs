@@ -1,25 +1,101 @@
 import React from 'react';
-import styles from './Cards.css';
+import styled from 'styled-components';
+import CopyButton from './../../Widgets/CopyButton';
 import GrowingBorder from '../../CardComponents/GrowingBorder/GrowingBorder';
 import PoppingCard from '../../CardComponents/PoppingCard/PoppingCard';
 import OutlineFillCard from '../../CardComponents/OutlineFillCard/OutlineFillCard';
 
+const MainWrapper = styled.div`
+  margin: 20px 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+`;
+
+const CardWrapper = styled.div`
+  border-bottom: 2px solid #eee;
+  padding: 40px;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  &:last-child {
+    border: none;
+  }
+
+  /* CopyButton */
+  & > :nth-child(3) {
+    margin-bottom: 50px;
+  }
+
+  /* Card Animation Logic */
+  transition: 250ms;
+  &:hover {
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.09);
+  }
+
+  &:hover:first-child {
+    box-shadow: 0 11px 16px -5px rgba(0, 0, 0, 0.05);
+  }
+  &:hover:last-child {
+    box-shadow: 0 -11px 16px -5px rgba(0, 0, 0, 0.05);
+  }
+`;
+
+const ComponentHeading = styled.h2`
+  text-align: center;
+  padding: 10px 60px;
+  border-bottom: 2px solid #eee;
+`;
+
+const ComponentWrapper = styled.div`
+  flex: 1 1 100%;
+  padding: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  & > * {
+    margin: 30px;
+  }
+
+  @media (max-width: 923px) {
+    flex-direction: column;
+  }
+`;
+
 const Cards = () => {
   return (
-    <div className={styles.Cards}>
-      <div className={styles.PoppingCard}>
-        <PoppingCard />
-        <PoppingCard />
-      </div>
-      <div className={styles.GrowingBorder}>
-        <GrowingBorder />
-      </div>
-      <div className={styles.PoppingCard}>
-        <OutlineFillCard />
-        <OutlineFillCard />
-        <OutlineFillCard />
-      </div>
-    </div>
+    <MainWrapper>
+      <CardWrapper>
+        <ComponentHeading>PoppingCard</ComponentHeading>
+        <ComponentWrapper>
+          <PoppingCard />
+          <PoppingCard />
+        </ComponentWrapper>
+        <CopyButton />
+      </CardWrapper>
+      <CardWrapper>
+        <ComponentHeading>GrowingBorder</ComponentHeading>
+        <ComponentWrapper>
+          <GrowingBorder />
+        </ComponentWrapper>
+        <CopyButton />
+      </CardWrapper>
+      <CardWrapper>
+        <ComponentHeading>OutlineFillCard</ComponentHeading>
+        <ComponentWrapper>
+          <OutlineFillCard />
+          <OutlineFillCard />
+          <OutlineFillCard />
+        </ComponentWrapper>
+        <CopyButton />
+      </CardWrapper>
+    </MainWrapper>
   );
 };
 
