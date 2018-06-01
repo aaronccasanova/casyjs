@@ -1,7 +1,8 @@
 .imageContainer {
   /* ---- CSS Variables Section ----- */
   --img-height: 200px;
-  --trans-speed: 300ms;
+  --trans-speed: 700ms;
+  --cubic-curve: cubic-bezier(0.46, 0.15, 0, 1.03);
   --bottom-left-dist: 25px;
   --underline-gap: 10px;
   --underline-size: 4px;
@@ -25,7 +26,8 @@
   object-fit: cover;
   width: 100%;
   height: var(--img-height);
-  transition: transform var(--trans-speed) ease-in;
+  transition: transform var(--trans-speed) var(--cubic-curve);
+  /* transition: transform var(--trans-speed) ease-in; */
 }
 
 .imageContainer:hover .image {
@@ -51,7 +53,7 @@
   transform: translateY(-50%);
   width: 50%;
   height: var(--underline-size);
-  transition: width var(--trans-speed) ease-in;
+  transition: width var(--trans-speed) var(--cubic-curve);
 }
 
 .imageContainer:hover .text::before {
