@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import CopyButton from './../../Widgets/CopyButton';
-import GrowingBorder from '../../CardComponents/GrowingBorder/GrowingBorder';
+import HalfFullCard from '../../CardComponents/HalfFullCard/HalfFullCard';
 import PoppingCard from '../../CardComponents/PoppingCard/PoppingCard';
 import OutlineFillCard from '../../CardComponents/OutlineFillCard/OutlineFillCard';
 
@@ -77,14 +77,14 @@ const Cards = () => {
           <PoppingCard />
           <PoppingCard />
         </ComponentWrapper>
-        <CopyButton />
+        <CopyButton id="Cards/PoppingCard" />
       </CardWrapper>
       <CardWrapper>
-        <ComponentHeading>GrowingBorder</ComponentHeading>
+        <ComponentHeading>HalfFullCard</ComponentHeading>
         <ComponentWrapper>
-          <GrowingBorder />
+          <HalfFullCard />
         </ComponentWrapper>
-        <CopyButton />
+        <CopyButton id="Cards/HalfFullCard" />
       </CardWrapper>
       <CardWrapper>
         <ComponentHeading>OutlineFillCard</ComponentHeading>
