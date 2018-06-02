@@ -5,6 +5,7 @@ import CopyPasteCard from './../../Widgets/CopyPasteCard';
 
 import ToXToggler from './../../NavigationComponents/NavTogglers/ToXToggler/ToXToggler';
 import FlattenToggler from './../../NavigationComponents/NavTogglers/FlattenToggler/FlattenToggler';
+import HamToXToggle from './../../NavigationComponents/NavTogglers/HamToX/HamToXToggle';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -21,11 +22,8 @@ const Navigation = () => {
         <CopyPasteCard cpName="FlattenToggler" id="Navigation/FlattenToggler">
           <FlattenToggler />
         </CopyPasteCard>
-        <CopyPasteCard cpName="FlattenToggler" id="Navigation/FlattenToggler">
-          <FlattenToggler />
-        </CopyPasteCard>
-        <CopyPasteCard cpName="FlattenToggler" id="Navigation/FlattenToggler">
-          <FlattenToggler />
+        <CopyPasteCard cpName="HamToXToggle" id="Navigation/HamToXToggle">
+          <HamToXToggle />
         </CopyPasteCard>
       </CopyPasteFlexGrid>
     </Wrapper>

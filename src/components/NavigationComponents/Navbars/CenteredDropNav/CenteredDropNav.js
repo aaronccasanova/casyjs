@@ -4,7 +4,7 @@ import { CSSTransition } from 'react-transition-group';
 
 import styles from './CenteredDropNav.css';
 
-import HamToX from '../../NavTogglers/HamToX/HamToX';
+import HamToXToggle from '../../NavTogglers/HamToX/HamToXToggle';
 
 class CenteredDropNav extends Component {
   state = {
@@ -70,7 +70,12 @@ class CenteredDropNav extends Component {
       <div className={styles.centeredDropNav}>
         <div className={styles.navBar}>
           <div className={styles.toggleBtn} onClick={this.toggleBtn}>
-            <HamToX showDropdown={this.state.showDropdown} />
+            <HamToXToggle
+              toggleActive={this.state.showDropdown}
+              width="30px"
+              height="21px"
+              thickness="2px"
+            />
           </div>
           <h1 className={styles.logo} onClick={this.hideDropdown}>
             <Link className={styles.logoLink} to={this.props.routes[0].path}>
