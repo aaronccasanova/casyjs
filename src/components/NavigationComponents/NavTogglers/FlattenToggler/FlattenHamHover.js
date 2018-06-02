@@ -6,7 +6,7 @@ const MainWrapper = styled.div`
   --menu-width: ${props => (props.width ? props.width : '50px')};
   --menu-height: ${props => (props.width ? props.height : '30px')};
   --bar-thickness: ${props => (props.thickness ? props.thickness : '4px')};
-  --trans-speed: 450ms;
+  --trans-speed: 150ms;
   /* -------------------------------- */
   width: 100%;
   height: 100%;
@@ -20,49 +20,43 @@ const SubWrapper = styled.div`
 `;
 
 const Menu = styled.div`
-  --rotate: ${props => (props.toggleActive ? '135deg' : '0deg')};
   background: black;
   position: absolute;
   width: 100%;
   height: var(--bar-thickness);
   top: 50%;
-  transform: translateY(-50%) rotate(var(--rotate));
-  transition: top var(--trans-speed) ease-in, transform var(--trans-speed);
+  transform: translateY(-50%);
 
   &::before,
   &::after {
-    --rotate: ${props => (props.toggleActive ? '90deg' : '0deg')};
     content: '';
     position: absolute;
     width: 100%;
     height: 100%;
     background: black;
-    transform: rotate(var(--rotate));
-    transition: top calc(var(--trans-speed) - 200ms) ease-in,
-      transform calc(var(--trans-speed) + 300ms);
+    transition: top var(--trans-speed) ease-in;
   }
 
   &::before {
-    top: ${props =>
-      props.toggleActive
-        ? '0'
-        : `calc((var(--menu-height) / 2 - (var(--bar-thickness) / 2)) * -1)`};
+    top: calc((var(--menu-height) / 2 - (var(--bar-thickness) / 2)) * -1);
   }
 
   &::after {
-    top: ${props =>
-      props.toggleActive
-        ? '0'
-        : `calc(var(--menu-height) / 2 - (var(--bar-thickness) / 2))`};
+    top: calc(var(--menu-height) / 2 - (var(--bar-thickness) / 2));
+  }
+
+  ${MainWrapper}:hover &::before,
+  ${MainWrapper}:hover &::after {
+    top: 0;
   }
 `;
 
-class HamToXToggle extends Component {
+class FlattenHamHover extends Component {
   state = {
     toggleActive: false
   };
 
-  handleToggle = () => {
+  toggleButton = () => {
     this.setState({
       toggleActive: !this.state.toggleActive
     });
@@ -71,23 +65,18 @@ class HamToXToggle extends Component {
   render() {
     return (
       <MainWrapper
-        onClick={this.handleToggle}
+        onMouseEnter={this.toggleButton}
+        onMouseLeave={this.toggleButton}
         width={this.props.width}
         height={this.props.height}
         thickness={this.props.thickness}
       >
         <SubWrapper>
-          <Menu
-            toggleActive={
-              this.props.toggleActive
-                ? this.props.toggleActive
-                : this.state.toggleActive
-            }
-          />
+          <Menu />
         </SubWrapper>
       </MainWrapper>
     );
   }
 }
 
-export default HamToXToggle;
+export default FlattenHamHover;
