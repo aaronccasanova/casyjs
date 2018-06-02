@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import CopyButton from './../../Widgets/CopyButton';
-import HalfFullCard from '../../CardComponents/HalfFullCard/HalfFullCard';
-import PopUpCard from '../../CardComponents/PopUpCard/PopUpCard';
-import PopOutCard from '../../CardComponents/PopOutCard/PopOutCard';
+import HalfFullCard from '../../CardComponents/HalfFullCard';
+import PopUpCard from '../../CardComponents/PopUpCard';
+import PopOutCard from '../../CardComponents/PopOutCard';
 
 const MainWrapper = styled.div`
   margin: 20px 0;

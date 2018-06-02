@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
-import CopyButton from './../../Widgets/CopyButton';
+import CopyPasteCard from './../../Widgets/CopyPasteCard';
+import CopyPasteFlexGrid from './../../Widgets/CopyPasteFlexGrid';
 import DownButton from '../../NavigationComponents/AnchorButtons/DownButton/DownButton';
 import DarkenButton from '../../ButtonComponents/DarkenButton/DarkenButton';
 import OutlineButton from '../../ButtonComponents/OutlineButton/OutlineButton';
@@ -13,101 +14,43 @@ import AniColorLink from './../../LinkComponents/AniColorLink';
 const Wrapper = styled.div`
   width: 100%;
   min-height: 50vh;
-  padding: 20px 0;
-  background: #f9f9f9;
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-
-  & > * {
-    flex: 1 1 auto;
-  }
-`;
-
-const Section = styled.section`
-  background: white;
-  padding: 30px;
-  margin: 20px;
-  min-height: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  border: 1px solid #eeeeee;
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.07);
-`;
-
-const ComponentName = styled.h2`
-  width: 90%;
-  text-align: center;
-  padding: 10px;
-  border-bottom: 2px solid #eee;
-`;
-
-const ComponentWrapper = styled.div`
-  margin: 25px 0;
 `;
 
 const Buttons = () => {
   return (
     <Wrapper>
-      <Section>
-        <ComponentName>DownButton</ComponentName>
-        <ComponentWrapper>
+      <CopyPasteFlexGrid>
+        <CopyPasteCard cpName="DownButton" id="Buttons/DownButton">
           <DownButton />
-        </ComponentWrapper>
-        <CopyButton id="Buttons/DownButton" />
-      </Section>
-      <Section>
-        <ComponentName>DarkenButton</ComponentName>
-        <ComponentWrapper>
+        </CopyPasteCard>
+        <CopyPasteCard cpName="DarkenButton" id="Buttons/DarkenButton">
           <DarkenButton>Hello</DarkenButton>
-        </ComponentWrapper>`
-        <CopyButton id="Buttons/DarkenButton" />
-      </Section>
-      <Section>
-        <ComponentName>OutlineButton</ComponentName>
-        <ComponentWrapper>
+        </CopyPasteCard>
+        <CopyPasteCard cpName="OutlineButton" id="Buttons/OutlineButton">
           <OutlineButton>Switcheroo</OutlineButton>
-        </ComponentWrapper>
-        <CopyButton id="Buttons/OutlineButton" />
-      </Section>
-      <Section>
-        <ComponentName>BlockButton</ComponentName>
-        <ComponentWrapper>
+        </CopyPasteCard>
+        <CopyPasteCard cpName="BlockButton" id="Buttons/BlockButton">
           <BlockButton>100% Contained</BlockButton>
-        </ComponentWrapper>
-        <CopyButton id="Buttons/BlockButton" />
-      </Section>
-      <Section>
-        <ComponentName>OutlineButtonGroup</ComponentName>
-        <ComponentWrapper>
+        </CopyPasteCard>
+        <CopyPasteCard
+          cpName="OutlineButtonGroup"
+          id="Buttons/OutlineButtonGroup"
+        >
           <OutlineButtonGroup />
-        </ComponentWrapper>
-        <CopyButton id="Buttons/OutlineButtonGroup" />
-      </Section>
-      <Section>
-        <ComponentName>DarkenButtonGroup</ComponentName>
-        <ComponentWrapper>
+        </CopyPasteCard>
+        <CopyPasteCard
+          cpName="DarkenButtonGroup"
+          id="Buttons/DarkenButtonGroup"
+        >
           <DarkenButtonGroup />
-        </ComponentWrapper>
-        <CopyButton id="Buttons/DarkenButtonGroup" />
-      </Section>
-      <Section>
-        <ComponentName>SlideArrowButton</ComponentName>
-        <ComponentWrapper>
+        </CopyPasteCard>
+        <CopyPasteCard cpName="SlideArrowButton" id="Buttons/SlideArrowButton">
           <SlideArrowButton>Move Aside</SlideArrowButton>
-        </ComponentWrapper>
-        <CopyButton id="Buttons/SlideArrowButton" />
-      </Section>
-      <Section>
-        <ComponentName>AniColorLink</ComponentName>
-        <ComponentWrapper>
-          <AniColorLink href="#">Campground</AniColorLink>
-        </ComponentWrapper>
-        <CopyButton id="Links/AniColorLink" />
-      </Section>
+        </CopyPasteCard>
+        <CopyPasteCard cpName="AniColorLink" id="Links/AniColorLink">
+          <AniColorLink href="http://www.casyjs.com">Campground</AniColorLink>
+        </CopyPasteCard>
+      </CopyPasteFlexGrid>
     </Wrapper>
   );
 };

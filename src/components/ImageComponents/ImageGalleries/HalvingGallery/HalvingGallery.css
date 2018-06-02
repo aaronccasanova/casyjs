@@ -52,7 +52,6 @@ Special Note: must use overflow-x:hidden on main root because the negative margi
   .imageItem {
     --pri-img-width: var(--sec-img-width);
   }
-
   .imageItem:nth-of-type(3n) {
     --pri-img-width: 100%;
   }

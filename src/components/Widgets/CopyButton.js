@@ -23,10 +23,14 @@ const FormWrapper = styled.form`
 `;
 
 const HiddenInput = styled.textarea`
+  z-index: -1;
+  width: 110%;
+  height: 110%;
   color: #efefef;
 `;
 
 const Button = styled.button`
+  z-index: 2;
   font-family: 'Poppins', sans-serif;
   color: #5b5b5b;
   font-weight: 300;
