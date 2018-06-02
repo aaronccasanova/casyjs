@@ -2,8 +2,8 @@ import React from 'react';
 import styled from 'styled-components';
 import CopyButton from './../../Widgets/CopyButton';
 import HalfFullCard from '../../CardComponents/HalfFullCard/HalfFullCard';
-import PoppingCard from '../../CardComponents/PoppingCard/PoppingCard';
-import OutlineFillCard from '../../CardComponents/OutlineFillCard/OutlineFillCard';
+import PopUpCard from '../../CardComponents/PopUpCard/PopUpCard';
+import PopOutCard from '../../CardComponents/PopOutCard/PopOutCard';
 
 const MainWrapper = styled.div`
   margin: 20px 0;
@@ -72,26 +72,46 @@ const Cards = () => {
   return (
     <MainWrapper>
       <CardWrapper>
-        <ComponentHeading>PoppingCard</ComponentHeading>
+        <ComponentHeading>PopUpCard</ComponentHeading>
         <ComponentWrapper>
-          <PoppingCard />
-          <PoppingCard />
+          <PopUpCard
+            src="https://images.unsplash.com/photo-1505773170783-58f82a520465?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e3288093a41bb48f021aac5c157d41af&auto=format&fit=crop&w=2100&q=80"
+            alt="PlaceHolder"
+            heading="Looky there..."
+            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+          doloribus perspiciatis quidem nesciunt hic libero incidunt vero iusto
+          dolor!"
+          />
+          <PopUpCard
+            src="https://images.unsplash.com/photo-1505773170783-58f82a520465?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=e3288093a41bb48f021aac5c157d41af&auto=format&fit=crop&w=2100&q=80"
+            alt="PlaceHolder"
+            heading="Looky there..."
+            paragraph="Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas
+          doloribus perspiciatis quidem nesciunt hic libero incidunt vero iusto
+          dolor!"
+          />
         </ComponentWrapper>
-        <CopyButton id="Cards/PoppingCard" />
+        <CopyButton id="Cards/PopUpCard" />
       </CardWrapper>
       <CardWrapper>
         <ComponentHeading>HalfFullCard</ComponentHeading>
         <ComponentWrapper>
-          <HalfFullCard />
+          <HalfFullCard
+            mainHeading="&#x02116; 923"
+            subHeading="Lorem ipsum dolor sit amet consectetur adipisicing elit."
+            content="Quia cum, corrupti assumenda autem fugiat nisi illo officia porro sint
+        sunt fugit sed quas, quasi harum deserunt, suscipit consectetur
+        repudiandae architecto!"
+          />
         </ComponentWrapper>
         <CopyButton id="Cards/HalfFullCard" />
       </CardWrapper>
       <CardWrapper>
-        <ComponentHeading>OutlineFillCard</ComponentHeading>
+        <ComponentHeading>PopOutCard</ComponentHeading>
         <ComponentWrapper>
-          <OutlineFillCard />
-          <OutlineFillCard />
-          <OutlineFillCard />
+          <PopOutCard icon="⪘" headingOne="YOU DO" headingTwo="THE MATH" />
+          <PopOutCard icon="⪘" headingOne="YOU DO" headingTwo="THE MATH" />
+          <PopOutCard icon="⪘" headingOne="YOU DO" headingTwo="THE MATH" />
         </ComponentWrapper>
         <CopyButton />
       </CardWrapper>
