@@ -56,6 +56,7 @@ export default App;
 // create styled element snippet with essential starting point props  // const ${name} = styled.${type} etc...
 // feed vpScale to top wrapper --scale: custom prop
 // do ress vpScale all with javascript and provide static units to @media(devices)
+// go to home page hit the drop down then go to the buttons page and X doesnt turn back to Ham
 
 // ====== open sources ideas ======
 // apicco.com side nav / link animation in nav
