@@ -45,11 +45,13 @@ class CenteredDropNav extends Component {
       }
     });
 
-    document.addEventListener('mousedown', this.handleClick, false);
+    document.addEventListener('click', this.handleClick, false);
+    // document.addEventListener('mousedown', this.handleClick, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener('mousedown', this.handleClick, false);
+    document.removeEventListener('click', this.handleClick, false);
+    // document.removeEventListener('mousedown', this.handleClick, false);
   }
 
   handleClick = e => {
