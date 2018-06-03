@@ -45,7 +45,6 @@ export default App;
 // vid 118 setup node express and react
 
 // ------ Todo ------ //
-// rename OutlineFillCard
 // make OFCard resuable
 // tidy up LayeredText Component on LandingPages
 // finish ressiz text on apiccoLanding
@@ -54,9 +53,6 @@ export default App;
 // ^^^ (currently a ton of resize event listener going on)
 // search for all class components and see if they can refactor to functional comp
 // create styled element snippet with essential starting point props  // const ${name} = styled.${type} etc...
-// feed vpScale to top wrapper --scale: custom prop
-// do ress vpScale all with javascript and provide static units to @media(devices)
-// go to home page hit the drop down then go to the buttons page and X doesnt turn back to Ham
 
 // ====== open sources ideas ======
 // apicco.com side nav / link animation in nav
