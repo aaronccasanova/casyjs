@@ -47,7 +47,8 @@ const Home = () => {
         <VideoHeading>
           Using &#x26; Sharing<br />
           Components<br />
-          <span>Just got a whole lot easier!</span>
+          <span>Has never been this easy...</span>
+          {/* <span>Just got a whole lot easier!</span> */}
         </VideoHeading>
         <HowToVideo
           title="How To Use CPComponents"

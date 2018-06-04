@@ -99,7 +99,7 @@ const LinksWrapper = styled.ul`
     bottom: ${props => (props.showMenu ? '0' : '50%')};
     transform: ${props =>
       props.showMenu ? 'translateY(100%)' : 'translateY(0%)'};
-    transition: all 700ms cubic-bezier(0.51, 0.6, 0.47, 0.87);
+    transition: all 660ms cubic-bezier(0, 0, 0.34, 1);
   }
 `;
 

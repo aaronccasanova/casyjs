@@ -4,13 +4,13 @@ import styled from 'styled-components';
 const Link = styled.a`
   text-decoration: none;
   color: #040404;
-  background: white;
+  /* background: white; */
   width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 50px;
   font-size: calc(14px + (18 - 14) * (100vw - 320px) / (960 - 320));
+  white-space: nowrap;
   font-weight: bold;
   transition: 250ms;
 
