@@ -1,10 +1,131 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import { CSSTransition } from 'react-transition-group';
-
-import styles from './CenteredDropNav.css';
-
+import styled from 'styled-components';
 import HamToXToggle from '../../NavTogglers/HamToX/HamToXToggle';
+
+const Wrapper = styled.div`
+  /* ---- CSS Variables Section ----- */
+  --nav-height: 120px;
+  --underline-gap: 150%;
+  --box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.17);
+  /* -------------------------------- */
+  width: 100%;
+  min-height: var(--nav-height);
+  box-shadow: var(--box-shadow);
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+
+  @media (max-width: 960px) {
+    box-shadow: 0 0;
+  }
+`;
+
+const NavBar = styled.div`
+  background: white;
+  width: 100%;
+  min-height: var(--nav-height);
+  position: relative;
+  display: flex;
+  align-items: center;
+
+  @media (max-width: 960px) {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    z-index: 1;
+  }
+`;
+
+const ToggleBtnWrapper = styled.div`
+  display: none;
+
+  @media (max-width: 960px) {
+    display: block;
+    padding: 20px;
+  }
+`;
+
+const Logo = styled.h1`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  &::after {
+    content: '';
+    background: #d1d1d1;
+    position: absolute;
+    width: 250px;
+    height: 2px;
+    top: 170%;
+    left: 50%;
+    transform: translateX(-50%) scale(1, 1);
+    transition: all 360ms cubic-bezier(0.67, -0.35, 0.48, 0.79);
+  }
+
+  ${Wrapper}:hover &::after {
+    transform: translateX(-50%) scale(2.4, 1);
+  }
+
+  @media (max-width: 960px) {
+    &::after {
+      display: none;
+    }
+  }
+`;
+
+const LogoLink = styled(Link)`
+  color: #242424;
+  text-decoration: none;
+`;
+
+const Links = styled.ul`
+  text-align: center;
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  align-content: center;
+
+  @media (max-width: 960px) {
+    box-shadow: 0 -10px 20px 10px rgba(0, 0, 0, 0.274);
+    background: #f5f5f5;
+    flex-direction: column;
+    width: 100%;
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    transform: ${props =>
+      props.showMenu ? 'translateY(100%)' : 'translateY(0%)'};
+    transition: all 700ms;
+  }
+`;
+
+const A = styled(Link)`
+  margin-bottom: 20px;
+  color: #242424;
+  text-decoration: none;
+  display: block;
+  padding: 15px;
+  font-size: 20px;
+  opacity: 0.7;
+
+  &:hover {
+    opacity: 1;
+  }
+
+  @media (max-width: 960px) {
+    padding: 20px;
+    border-bottom: 2px solid #e4e4e4;
+    margin: 0;
+
+    &:hover {
+      background: #e9e9e9;
+    }
+  }
+`;
 
 class CenteredDropNav extends Component {
   state = {
@@ -20,14 +141,15 @@ class CenteredDropNav extends Component {
   };
 
   hideMenu = () => {
-    this.setState({
-      showMenu: false
-    });
+    if (this.state.showMenu !== false) {
+      this.setState({
+        showMenu: false
+      });
+    }
   };
 
-  // Recommend to also removeListener on unmount,
-  // but leaving infinite for proper nav functionality
   componentWillMount() {
+    document.addEventListener('click', this.handleClick, false);
     window.addEventListener('resize', () => {
       if (window.innerWidth > 960) {
         if (this.state.highBreakCounter === 0) {
@@ -44,14 +166,10 @@ class CenteredDropNav extends Component {
         }
       }
     });
-
-    document.addEventListener('click', this.handleClick, false);
-    // document.addEventListener('mousedown', this.handleClick, false);
   }
 
   componentWillUnmount() {
     document.removeEventListener('click', this.handleClick, false);
-    // document.removeEventListener('mousedown', this.handleClick, false);
   }
 
   handleClick = e => {
@@ -78,13 +196,9 @@ class CenteredDropNav extends Component {
       if (route.path) {
         return (
           <li key={i}>
-            <Link
-              className={styles.a}
-              to={`${route.path}`}
-              onClick={this.hideMenu}
-            >
+            <A to={`${route.path}`} onClick={this.hideMenu}>
               {route.name}
-            </Link>
+            </A>
           </li>
         );
       }
@@ -95,37 +209,24 @@ class CenteredDropNav extends Component {
   render() {
     return (
       <div ref={node => (this.node = node)}>
-        <div className={styles.centeredDropNav}>
-          <div className={styles.navBar}>
-            <div className={styles.toggleBtn} onClick={this.toggleMenu}>
+        <Wrapper>
+          <NavBar>
+            <ToggleBtnWrapper onClick={this.toggleMenu}>
               <HamToXToggle
                 toggleActive={this.state.showMenu}
                 width="30px"
                 height="21px"
                 thickness="2px"
               />
-            </div>
-            <h1 className={styles.logo} onClick={this.hideMenu}>
-              <Link className={styles.logoLink} to={this.props.routes[0].path}>
+            </ToggleBtnWrapper>
+            <Logo onClick={this.hideMenu}>
+              <LogoLink to={this.props.routes[0].path}>
                 {this.props.logo}
-              </Link>
-            </h1>
-          </div>
-          <CSSTransition
-            in={this.state.showMenu}
-            timeout={700}
-            classNames={{
-              enter: styles.dropDownEnter,
-              enterActive: styles.dropDownEnterActive,
-              enterDone: styles.dropDownEnterDone,
-              exit: styles.dropDownExit,
-              exitActive: styles.dropDownExitActive,
-              exitDone: styles.dropDownExitDone
-            }}
-          >
-            <ul className={styles.links}>{this.createLinks()}</ul>
-          </CSSTransition>
-        </div>
+              </LogoLink>
+            </Logo>
+          </NavBar>
+          <Links showMenu={this.state.showMenu}>{this.createLinks()}</Links>
+        </Wrapper>
       </div>
     );
   }
