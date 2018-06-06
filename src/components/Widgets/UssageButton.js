@@ -43,16 +43,16 @@ const Button = styled.button`
     background: #e4e4e4;
   }
 `;
-class CopyButton extends Component {
+class UssageButton extends Component {
   state = {
     id: '',
     code: '',
-    status: 'Copy'
+    status: 'Example'
   };
 
   componentWillMount() {
     let idArr = this.props.id.split('/');
-    let id = `${idArr[0]}/${idArr[1]}/${idArr[1]}`;
+    let id = `${idArr[0]}/${idArr[1]}/${idArr[1]}Example`;
     if (id !== this.state.id) {
       axios
         .get(
@@ -95,9 +95,10 @@ class CopyButton extends Component {
           <HiddenInput type="text" value={this.state.code} readOnly />
           <Button>{this.state.status}</Button>
         </FormWrapper>
+        <textarea value={this.state.code} />
       </div>
     );
   }
 }
 
-export default CopyButton;
+export default UssageButton;

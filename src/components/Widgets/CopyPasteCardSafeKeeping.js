@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
 import CopyButton from './CopyButton';
-import UssageButton from './UssageButton';
 
 const Wrapper = styled.section`
   background: white;
@@ -27,22 +26,12 @@ const CPComponent = styled.div`
   margin: 25px 0;
 `;
 
-const FooterWrapper = styled.div`
-  width: 100%;
-  border: 2px solid red;
-  display: flex;
-  justify-content: flex-end;
-`;
-
 const CopyPasteCard = props => {
   return (
     <Wrapper>
       <ComponentName>{props.cpName}</ComponentName>
       <CPComponent>{props.children}</CPComponent>
-      <FooterWrapper>
-        <UssageButton id={props.id} />
-        <CopyButton id={props.id} />
-      </FooterWrapper>
+      <CopyButton id={props.id} />
     </Wrapper>
   );
 };
