@@ -16,6 +16,7 @@ const Wrapper = styled.div`
   padding: 40px var(--grid-padding);
   width: var(--grid-width);
   min-height: var(--grid-height);
+  overflow: hidden;
 `;
 
 const NegativeGapWrapper = styled.div`

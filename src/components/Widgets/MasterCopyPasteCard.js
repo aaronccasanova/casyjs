@@ -4,13 +4,22 @@ import CopyButton from './CopyButton';
 import ExpandingUsageBox from './ExpandingUsageBox';
 
 const Wrapper = styled.div`
-  display: ${props => (props.expand ? 'flex' : null)};
-  justify-content: ${props => (props.expand ? 'center' : null)};
-  min-height: ${props => (props.expand ? '90vh' : '250px')};
-  transition: 300ms 100ms;
+  position: ${props => (props.expand ? 'fixed' : null)};
+  top: ${props => (props.expand ? '50%' : '0')};
+  left: ${props => (props.expand ? '50%' : '0')};
+  transform: ${props =>
+    props.expand ? 'translate(-50%, -50%)' : 'translate(0%, 0%)'};
+  z-index: ${props => (props.expand ? '1000' : null)};
+  min-height: 250px;
+  height: ${props => (props.expand ? '95vh' : null)};
+  transition: transform ${props => (props.expand ? '300ms' : '923ms')},
+    top ${props => (props.expand ? '300ms' : '923ms')},
+    left ${props => (props.expand ? '300ms' : '923ms')};
+  /* transition: 300ms 100ms; */
 `;
 
 const Card = styled.div`
+  overflow-y: auto;
   width: ${props => (props.expand ? '90vw' : null)};
   height: 100%;
   border: 1px solid #e6e6e6;
@@ -19,9 +28,10 @@ const Card = styled.div`
   border-radius: 3px;
   box-shadow: ${props =>
     props.expand
-      ? '0 6px 45px rgba(0, 0, 0, 0.20)'
-      : '0 10px 15px -5px rgba(0, 0, 0, 0.07)'};
-  transition: ${props => (props.expand ? '160ms' : '700ms')};
+      ? '0 0 100vmax rgba(0, 0, 0, 0.40)'
+      : /* ? '0 6px 45px rgba(0, 0, 0, 0.20)' */
+        '0 10px 15px -5px rgba(0, 0, 0, 0.07)'};
+  transition: box-shadow ${props => (props.expand ? '300ms' : '923ms')};
 
   display: flex;
   flex-direction: column;
