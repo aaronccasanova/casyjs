@@ -113,7 +113,7 @@ const Cards = () => {
           <PopOutCard icon="⪘" headingOne="YOU DO" headingTwo="THE MATH" />
           <PopOutCard icon="⪘" headingOne="YOU DO" headingTwo="THE MATH" />
         </ComponentWrapper>
-        <CopyButton />
+        <CopyButton id="Cards/PopOutCard" />
       </CardWrapper>
     </MainWrapper>
   );
