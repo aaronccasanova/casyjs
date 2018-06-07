@@ -82,7 +82,7 @@ const LogoLink = styled(Link)`
   text-decoration: none;
 `;
 
-const Links = styled.ul`
+const LinksWrapper = styled.ul`
   text-align: center;
   list-style: none;
   display: flex;
@@ -96,14 +96,14 @@ const Links = styled.ul`
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: 0;
+    bottom: ${props => (props.showMenu ? '0' : '50%')};
     transform: ${props =>
       props.showMenu ? 'translateY(100%)' : 'translateY(0%)'};
-    transition: all 700ms;
+    transition: all 660ms cubic-bezier(0, 0, 0.34, 1);
   }
 `;
 
-const A = styled(Link)`
+const Links = styled(Link)`
   margin-bottom: 20px;
   color: #242424;
   text-decoration: none;
@@ -191,14 +191,14 @@ class CenteredDropNav extends Component {
     });
   };
 
-  createLinks = () => {
+  createLinksWrapper = () => {
     return this.props.routes.map((route, i) => {
       if (route.path) {
         return (
           <li key={i}>
-            <A to={`${route.path}`} onClick={this.hideMenu}>
+            <Links to={`${route.path}`} onClick={this.hideMenu}>
               {route.name}
-            </A>
+            </Links>
           </li>
         );
       }
@@ -225,7 +225,9 @@ class CenteredDropNav extends Component {
               </LogoLink>
             </Logo>
           </NavBar>
-          <Links showMenu={this.state.showMenu}>{this.createLinks()}</Links>
+          <LinksWrapper showMenu={this.state.showMenu}>
+            {this.createLinksWrapper()}
+          </LinksWrapper>
         </Wrapper>
       </div>
     );

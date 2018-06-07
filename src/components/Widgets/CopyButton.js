@@ -1,24 +1,22 @@
 import React, { Component } from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import axios from 'axios';
 
 const FormWrapper = styled.form`
   @import url('https://fonts.googleapis.com/css?family=Poppins:300');
-  background: white;
-  width: 120px;
+  overflow: hidden;
+  background: #fdfdfd;
+  width: 95px;
   height: 50px;
   position: relative;
-  overflow: hidden;
-  border-radius: 5px;
-  border: 1px solid #d6d6d6;
-  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.06);
 
   & > * {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    background: #efefef;
+    background: #fdfdfd;
+    /* background: #efefef; */
   }
 `;
 
@@ -29,25 +27,55 @@ const HiddenInput = styled.textarea`
   color: #efefef;
 `;
 
-const Button = styled.button`
-  z-index: 2;
-  font-family: 'Poppins', sans-serif;
-  color: #5b5b5b;
-  font-weight: 300;
-  font-size: 20px;
-  width: 110%;
-  height: 110%;
-  cursor: pointer;
-
-  &:hover {
-    background: #e4e4e4;
+const ScissorAni = keyframes`
+  0% {
+    transform: rotate(90deg) translate(1px, -3px) scaleX(1);
+  }
+  
+  50%{
+    transform: rotate(90deg) translate(1px, -3px) scaleX(0.08); 
+  }
+  
+  100% {
+   transform: rotate(90deg) translate(1px, -3px) scaleX(1);
   }
 `;
+
+const Button = styled.button`
+  overflow: hidden;
+  cursor: pointer;
+  z-index: 2;
+  font-family: 'Poppins', sans-serif;
+  width: 110%;
+  height: 110%;
+  color: #5b5b5b;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 13px;
+  padding: 5px;
+
+  span {
+    /* display: inline-block; */
+    font-size: ${props => (props.status === 'Copy' ? '13px' : '16px')};
+    transform: ${props =>
+      props.status === 'Copy'
+        ? 'rotate(90deg) translate(1px, -3px) scaleX(1)'
+        : 'rotate(0) translate(4px, 0) scaleX(1)'};
+    filter: brightness(37%);
+  }
+  &:hover span {
+    animation: ${props =>
+      props.status === 'Copy' ? `${ScissorAni} 290ms linear` : null};
+  }
+`;
+
 class CopyButton extends Component {
   state = {
     id: '',
     code: '',
-    status: 'Copy'
+    status: 'Copy',
+    icon: '✂️'
   };
 
   componentWillMount() {
@@ -76,7 +104,8 @@ class CopyButton extends Component {
     input.select();
     document.execCommand('copy');
     this.setState({
-      status: 'Copied'
+      status: 'Copied',
+      icon: '✓'
     });
   };
 
@@ -84,7 +113,8 @@ class CopyButton extends Component {
     this.setState({
       id: '',
       code: '',
-      status: 'Copy'
+      status: 'Copy',
+      icon: '✂️'
     });
   }
 
@@ -93,7 +123,12 @@ class CopyButton extends Component {
       <div>
         <FormWrapper onSubmit={e => this.copyToClipboard(this.props.id, e)}>
           <HiddenInput type="text" value={this.state.code} readOnly />
-          <Button>{this.state.status}</Button>
+          <Button status={this.state.status}>
+            {this.state.status}
+            <span role="img" aria-label="Cut Copy Paste Icon">
+              ️{this.state.icon}
+            </span>
+          </Button>
         </FormWrapper>
       </div>
     );

@@ -9,8 +9,9 @@ const Wrapper = styled.section`
 `;
 
 const Card = styled.div`
+  overflow: hidden;
   background: white;
-  padding: 30px;
+  padding: 20px;
   min-height: 300px;
   display: flex;
   flex-direction: column;
@@ -24,10 +25,24 @@ const Card = styled.div`
 `;
 
 const ComponentName = styled.h2`
+  color: #646464;
+  font-size: calc(20px + (24 - 20) * (100vmin - 320px) / (750 - 320));
   text-align: center;
   padding: 30px 35px 10px;
-  border-bottom: 2px solid #eee;
   white-space: nowrap;
+  position: relative;
+
+  &::before {
+    content: '';
+    background: #eee;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: -10px;
+    width: calc(100% + 15px);
+    height: 2px;
+    transition: 250ms;
+  }
 `;
 
 const CPComponent = styled.div`

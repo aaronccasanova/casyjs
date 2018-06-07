@@ -1,21 +1,31 @@
 import React, { Component } from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 import CopyButton from './CopyButton';
+import ExpandingUsageBox from './ExpandingUsageBox';
 
-const Wrapper = styled.div``;
+const Wrapper = styled.div`
+  display: ${props => (props.expand ? 'flex' : null)};
+  justify-content: ${props => (props.expand ? 'center' : null)};
+  min-height: ${props => (props.expand ? '90vh' : '250px')};
+  transition: 300ms 100ms;
+`;
 
 const Card = styled.div`
+  width: ${props => (props.expand ? '90vw' : null)};
+  height: 100%;
   border: 1px solid #e6e6e6;
   background: #fff;
   padding: 15px;
-  height: 100%;
   border-radius: 3px;
-  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.07);
+  box-shadow: ${props =>
+    props.expand
+      ? '0 6px 45px rgba(0, 0, 0, 0.20)'
+      : '0 10px 15px -5px rgba(0, 0, 0, 0.07)'};
+  transition: ${props => (props.expand ? '160ms' : '700ms')};
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  /* justify-content: center; */
   align-items: center;
 `;
 
@@ -30,7 +40,9 @@ const ComponentWrapper = styled.div`
   align-items: center;
 `;
 
-const CPComponent = styled.div``;
+const CPComponent = styled.div`
+  padding: 20px;
+`;
 
 const CopyPasteBar = styled.div`
   /* ---------For Editing Layout---------- */
@@ -38,7 +50,8 @@ const CopyPasteBar = styled.div`
   /* ------------------------------------- */
   width: 100%;
   min-height: 50px;
-  padding: 7px;
+  padding: 10px;
+  /* padding: 7px; */
 
   display: flex;
   justify-content: flex-end;
@@ -66,72 +79,33 @@ const MoreInfoButton = styled.div`
   }
 `;
 
-const ScissorAni = keyframes`
-  0% {
-   transform: rotate(90deg) translate(1px, -3px) scaleX(1);
-  }
-
-  50%{
-transform: rotate(90deg) translate(1px, -3px) scaleX(0.08); 
-  }
-
-  100% {
-   transform: rotate(90deg) translate(1px, -3px) scaleX(1);
-  }
-`;
-
-const CopyIcon = styled.div`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid red;
-  /* ------------------------------------- */
-  overflow: hidden;
-  cursor: pointer;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 13px;
-  padding: 5px;
-
-  span {
-    font-size: 13px;
-    display: inline-block;
-    transform: rotate(90deg) translate(1px, -3px) scaleX(1);
-    filter: brightness(37%);
-  }
-  &:hover span {
-    animation: ${ScissorAni} 290ms linear;
-  }
-
-  & > :last-child {
-    opacity: 0;
-  }
-`;
-
 class MasterCopyPasteCard extends Component {
+  state = {
+    expand: false
+  };
+
+  handleExpand = () => {
+    this.setState({
+      expand: !this.state.expand
+    });
+  };
+
   render() {
     return (
-      <Wrapper>
-        <Card>
+      <Wrapper expand={this.state.expand}>
+        <Card expand={this.state.expand}>
           <ComponentWrapper>
             <CPComponent>{this.props.children}</CPComponent>
           </ComponentWrapper>
           <CopyPasteBar>
-            <MoreInfoButton>
-              {/* <MoreInfoButton onClick={this.handleClick}> */}
+            <MoreInfoButton onClick={this.handleExpand}>
               <div />
               <div />
               <div />
             </MoreInfoButton>
-            <CopyIcon>
-              Copy<span role="img" aria-label="Cut Copy Paste">
-                ️✂️
-              </span>
-              {/* <span role="img" aria-label="Copy To Clipboard">
-                ️📋
-              </span> */}
-              <CopyButton id={this.props.id} />
-            </CopyIcon>
+            <CopyButton id={this.props.id} />
           </CopyPasteBar>
+          <ExpandingUsageBox id={this.props.id} expand={this.state.expand} />
         </Card>
       </Wrapper>
     );

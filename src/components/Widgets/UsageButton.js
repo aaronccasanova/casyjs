@@ -48,7 +48,7 @@ class UsageButton extends Component {
   state = {
     id: '',
     code: '',
-    status: 'Usage'
+    status: 'Copy'
   };
 
   componentWillMount() {
@@ -85,7 +85,7 @@ class UsageButton extends Component {
     this.setState({
       id: '',
       code: '',
-      status: 'Usage'
+      status: 'Copy'
     });
   }
 
