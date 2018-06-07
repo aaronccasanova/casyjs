@@ -31,7 +31,7 @@ const NegativeGapWrapper = styled.div`
     padding: var(--gap);
     flex: 1 1 100%;
 
-    @media (min-width: 750px) {
+    @media (min-width: 700px) {
       flex: 1 1 50%;
     }
 

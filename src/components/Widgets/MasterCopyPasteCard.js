@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import styled, { keyframes } from 'styled-components';
+import CopyButton from './CopyButton';
 
 const Wrapper = styled.div``;
 
@@ -13,18 +14,17 @@ const Card = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-between;
+  /* justify-content: center; */
   align-items: center;
 `;
 
 const ComponentWrapper = styled.div`
   border: 1px solid #e6e6e6;
-  background: #f1f1f1;
-  /* ---------For Editing Layout---------- */
-  /* border: 2px solid #dadada; */
-  /* ------------------------------------- */
+  background: #fafafa;
   width: 100%;
   min-height: 200px;
+  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,19 +68,23 @@ const MoreInfoButton = styled.div`
 
 const ScissorAni = keyframes`
   0% {
-   transform: rotate(90deg) translate(3px, -3px) scaleX(1);
+   transform: rotate(90deg) translate(1px, -3px) scaleX(1);
   }
 
   50%{
-transform: rotate(90deg) translate(3px, -3px) scaleX(0.1); 
+transform: rotate(90deg) translate(1px, -3px) scaleX(0.08); 
   }
 
   100% {
-   transform: rotate(90deg) translate(3px, -3px) scaleX(1);
+   transform: rotate(90deg) translate(1px, -3px) scaleX(1);
   }
 `;
 
 const CopyIcon = styled.div`
+  /* ---------For Editing Layout---------- */
+  border: 2px solid red;
+  /* ------------------------------------- */
+  overflow: hidden;
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -91,11 +95,15 @@ const CopyIcon = styled.div`
   span {
     font-size: 13px;
     display: inline-block;
-    transform: rotate(90deg) translate(3px, -3px) scaleX(1);
+    transform: rotate(90deg) translate(1px, -3px) scaleX(1);
     filter: brightness(37%);
   }
   &:hover span {
-    animation: ${ScissorAni} 310ms linear;
+    animation: ${ScissorAni} 290ms linear;
+  }
+
+  & > :last-child {
+    opacity: 0;
   }
 `;
 
@@ -121,6 +129,7 @@ class MasterCopyPasteCard extends Component {
               {/* <span role="img" aria-label="Copy To Clipboard">
                 ️📋
               </span> */}
+              <CopyButton id={this.props.id} />
             </CopyIcon>
           </CopyPasteBar>
         </Card>
