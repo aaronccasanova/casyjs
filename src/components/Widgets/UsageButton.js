@@ -43,11 +43,12 @@ const Button = styled.button`
     background: #e4e4e4;
   }
 `;
-class UssageButton extends Component {
+
+class UsageButton extends Component {
   state = {
     id: '',
     code: '',
-    status: 'Example'
+    status: 'Usage'
   };
 
   componentWillMount() {
@@ -84,7 +85,7 @@ class UssageButton extends Component {
     this.setState({
       id: '',
       code: '',
-      status: 'Copy'
+      status: 'Usage'
     });
   }
 
@@ -95,10 +96,9 @@ class UssageButton extends Component {
           <HiddenInput type="text" value={this.state.code} readOnly />
           <Button>{this.state.status}</Button>
         </FormWrapper>
-        <textarea value={this.state.code} />
       </div>
     );
   }
 }
 
-export default UssageButton;
+export default UsageButton;

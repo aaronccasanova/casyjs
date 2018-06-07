@@ -6,15 +6,29 @@ import CopyPasteCard from './../../Widgets/CopyPasteCard';
 import FlattenHamToggle from './../../NavigationComponents/NavTogglers/FlattenToggler/FlattenHamToggle';
 import HamToXToggle from './../../NavigationComponents/NavTogglers/HamToX/HamToXToggle';
 
-const Wrapper = styled.div`
-  width: 100%;
-  min-height: 50vh;
-`;
+import MasterCopyPasteCard from './../../Widgets/MasterCopyPasteCard';
+import MasterCopyPasteFlexGrid from './../../Widgets/MasterCopyPasteFlexGrid';
+
+const Wrapper = styled.div``;
 
 const Navigation = () => {
   return (
     <Wrapper>
-      <CopyPasteFlexGrid>
+      <MasterCopyPasteFlexGrid>
+        <MasterCopyPasteCard>
+          <HamToXToggle />
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard>
+          <HamToXToggle />
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard>
+          <HamToXToggle />
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard>
+          <HamToXToggle />
+        </MasterCopyPasteCard>
+      </MasterCopyPasteFlexGrid>
+      {/* <CopyPasteFlexGrid>
         <CopyPasteCard cpName="HamToXToggle" id="Navigation/HamToXToggle">
           <HamToXToggle />
         </CopyPasteCard>
@@ -24,7 +38,7 @@ const Navigation = () => {
         >
           <FlattenHamToggle />
         </CopyPasteCard>
-      </CopyPasteFlexGrid>
+      </CopyPasteFlexGrid> */}
     </Wrapper>
   );
 };
