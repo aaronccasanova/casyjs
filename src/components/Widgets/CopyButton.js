@@ -125,8 +125,8 @@ class CopyButton extends Component {
           <HiddenInput type="text" value={this.state.code} readOnly />
           <Button status={this.state.status}>
             {this.state.status}
-            <span role="img" aria-label="Cut Copy Paste Icon">
-              ️{this.state.icon}
+            <span role="button" aria-label="Cut Copy Paste Icon">
+              {this.state.icon}
             </span>
           </Button>
         </FormWrapper>
