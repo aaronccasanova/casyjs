@@ -11,9 +11,11 @@ const Wrapper = styled.div`
   z-index: ${props => (props.expand ? 1000 : null)};
   min-height: 250px;
   display: ${props => (props.expand ? 'flex' : null)};
-  flex-direction: ${props => (props.expand ? 'column' : null)};
-  justify-content: ${props => (props.expand ? 'flex-end' : null)};
+  justify-content: ${props => (props.expand ? 'center' : null)};
   align-items: ${props => (props.expand ? 'flex-end' : null)};
+  /* flex-direction: ${props => (props.expand ? 'column' : null)};
+  justify-content: ${props => (props.expand ? 'flex-end' : null)};
+  align-items: ${props => (props.expand ? 'flex-end' : null)}; */
 `;
 
 const Card = styled.div`
@@ -24,7 +26,7 @@ const Card = styled.div`
       : null};
   height: ${props =>
     props.expand
-      ? 'calc(225px + (610 - 225) * (100vh - 320px) / (750 - 320))'
+      ? 'calc(225px + (630 - 225) * (100vh - 320px) / (750 - 320))'
       : '100%'};
   border: 1px solid #e6e6e6;
   background: #fff;
@@ -97,22 +99,29 @@ const MoreInfoButton = styled.div`
   }
 `;
 
-const X = styled.div`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid red;
-  /* ------------------------------------- */
+const ExpandHeaderWrapper = styled.div`
+  display: ${props => (props.expand ? 'flex' : 'none')};
+  justify-content: ${props => (props.expand ? 'space-between' : null)};
+  align-items: ${props => (props.expand ? 'center' : null)};
+  width: 100%;
+  padding: 25px 0;
+`;
+
+const ComponentName = styled.h2`
   display: ${props => (props.expand ? 'block' : 'none')};
-  /* position: fixed;
-  top: -40px;
-  right: 10px; */
-  color: white;
-  padding: 20px;
+  color: #3a3a3a;
+`;
+
+const X = styled.h2`
+  display: ${props => (props.expand ? 'block' : 'none')};
+  color: #3a3a3a;
   font-size: calc(20px + (25 - 20) * (100vmin - 320px) / (750 - 320));
   cursor: pointer;
 `;
 
 class MasterCopyPasteCard extends Component {
   state = {
+    cpName: '',
     expand: false
   };
 
@@ -122,13 +131,23 @@ class MasterCopyPasteCard extends Component {
     });
   };
 
+  getComponentName = id => {
+    let [category, name] = id.split('/');
+    return name;
+  };
+
   render() {
     return (
       <Wrapper expand={this.state.expand}>
-        <X onClick={this.handleExpand} expand={this.state.expand}>
-          X
-        </X>
         <Card expand={this.state.expand}>
+          <ExpandHeaderWrapper expand={this.state.expand}>
+            <ComponentName expand={this.state.expand}>
+              {this.getComponentName(this.props.id)}
+            </ComponentName>
+            <X expand={this.state.expand} onClick={this.handleExpand}>
+              X
+            </X>
+          </ExpandHeaderWrapper>
           <ComponentWrapper>
             <CPComponent>{this.props.children}</CPComponent>
           </ComponentWrapper>
