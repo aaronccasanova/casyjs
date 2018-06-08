@@ -9,7 +9,7 @@ const Wrapper = styled.div`
   left: ${props => (props.expand ? '50%' : '0')};
   transform: ${props =>
     props.expand ? 'translate(-50%, -50%)' : 'translate(0%, 0%)'};
-  z-index: ${props => (props.expand ? '1000' : null)};
+  z-index: ${props => (props.expand ? 1000 : null)};
   min-height: 250px;
   height: ${props => (props.expand ? '95vh' : null)};
   transition: transform ${props => (props.expand ? '300ms' : '923ms')},
@@ -26,17 +26,25 @@ const Card = styled.div`
   background: #fff;
   padding: 15px;
   border-radius: 3px;
-  box-shadow: ${props =>
-    props.expand
-      ? '0 0 100vmax rgba(0, 0, 0, 0.40)'
-      : /* ? '0 6px 45px rgba(0, 0, 0, 0.20)' */
-        '0 10px 15px -5px rgba(0, 0, 0, 0.07)'};
-  transition: box-shadow ${props => (props.expand ? '300ms' : '923ms')};
+  box-shadow: 0 10px 15px -5px rgba(0, 0, 0, 0.07);
 
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+
+  &::after {
+    content: '';
+    background: rgba(0, 0, 0, 0.25);
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 150vw;
+    height: 150vh;
+    display: ${props => (props.expand ? 'block' : 'none')};
+    z-index: -1;
+  }
 `;
 
 const ComponentWrapper = styled.div`
