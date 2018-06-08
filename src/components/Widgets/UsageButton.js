@@ -93,7 +93,11 @@ class UsageButton extends Component {
     return (
       <div>
         <FormWrapper onSubmit={e => this.copyToClipboard(this.props.id, e)}>
-          <HiddenInput type="text" value={this.state.code} readOnly />
+          <HiddenInput
+            type="text"
+            value={this.props.usage || this.state.code}
+            readOnly
+          />
           <Button>{this.state.status}</Button>
         </FormWrapper>
       </div>

@@ -10,7 +10,7 @@ import prism from 'react-syntax-highlighter/styles/prism/prism';
 
 registerLanguage('jsx', jsx);
 
-const CodeWrapper = styled.div`
+const Wrapper = styled.div`
   display: ${props => (props.expand ? 'block' : 'none')};
   padding: 15px 15px 5px;
   width: 100%;
@@ -19,6 +19,7 @@ const CodeWrapper = styled.div`
 `;
 
 const Heading = styled.h2`
+  font-weight: bold;
   text-align: center;
   padding-bottom: 30px;
 `;
@@ -33,6 +34,18 @@ const ButtonWrapper = styled.div`
   position: absolute;
   right: 25px;
   bottom: 37px;
+`;
+
+const CodeWrapper = styled.div``;
+
+const UsageWrapper = styled.div`
+  margin-bottom: 40px;
+  position: relative;
+
+  h2 {
+    font-weight: 400;
+    font-size: calc(13px + (18 - 13) * (100vmin - 320px) / (750 - 320));
+  }
 `;
 
 class ExpandingUsageBox extends Component {
@@ -68,21 +81,34 @@ class ExpandingUsageBox extends Component {
     });
   }
 
+  createCodeBlocks = code => {
+    let codeArr = code.split('//');
+    return codeArr.map((content, i, arr) => {
+      if (i % 2 !== 0) {
+        return (
+          <UsageWrapper key={i}>
+            <h2>{content}</h2>
+            <StyledSyntaxHighlighter language={'jsx'} style={prism}>
+              {arr[i + 1]}
+            </StyledSyntaxHighlighter>
+            <ButtonWrapper>
+              <UsageButton id={this.props.id} usage={arr[i + 1]} />
+            </ButtonWrapper>
+          </UsageWrapper>
+        );
+      }
+      return null;
+    });
+  };
+
   render() {
     return (
-      <CodeWrapper expand={this.props.expand}>
+      <Wrapper expand={this.props.expand}>
         <Heading>Usage</Heading>
-        <StyledSyntaxHighlighter
-          language={'jsx'}
-          style={prism}
-          // customStyle={{ fontSize: '20px' }}
-        >
-          {this.state.code}
-        </StyledSyntaxHighlighter>
-        <ButtonWrapper>
-          <UsageButton id={this.props.id} />
-        </ButtonWrapper>
-      </CodeWrapper>
+        <CodeWrapper>
+          {this.state.code ? this.createCodeBlocks(this.state.code) : null}
+        </CodeWrapper>
+      </Wrapper>
     );
   }
 }
