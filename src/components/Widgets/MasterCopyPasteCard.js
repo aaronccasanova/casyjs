@@ -11,17 +11,12 @@ const Wrapper = styled.div`
     props.expand ? 'translate(-50%, -50%)' : 'translate(0%, 0%)'};
   z-index: ${props => (props.expand ? 1000 : null)};
   min-height: 250px;
-  height: ${props => (props.expand ? '95vh' : null)};
-  transition: transform ${props => (props.expand ? '300ms' : '923ms')},
-    top ${props => (props.expand ? '300ms' : '923ms')},
-    left ${props => (props.expand ? '300ms' : '923ms')};
 `;
 
 const Card = styled.div`
   overflow-y: auto;
   width: ${props => (props.expand ? '90vw' : null)};
   height: ${props => (props.expand ? '90vh' : '100%')};
-  /* height: 100%; */
   border: 1px solid #e6e6e6;
   background: #fff;
   padding: 15px;
@@ -63,13 +58,9 @@ const CPComponent = styled.div`
 `;
 
 const CopyPasteBar = styled.div`
-  /* ---------For Editing Layout---------- */
-  /* border: 2px solid #d6d6d6; */
-  /* ------------------------------------- */
   width: 100%;
   min-height: 50px;
   padding: 10px;
-  /* padding: 7px; */
 
   display: flex;
   justify-content: flex-end;
