@@ -26,7 +26,7 @@ const Card = styled.div`
       : null};
   height: ${props =>
     props.expand
-      ? 'calc(225px + (630 - 225) * (100vh - 320px) / (750 - 320))'
+      ? 'calc(225px + (640 - 225) * (100vh - 320px) / (750 - 320))'
       : '100%'};
   border: 1px solid #e6e6e6;
   background: #fff;
