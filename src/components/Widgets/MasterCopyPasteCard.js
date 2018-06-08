@@ -5,18 +5,23 @@ import ExpandingUsageBox from './ExpandingUsageBox';
 
 const Wrapper = styled.div`
   position: ${props => (props.expand ? 'fixed' : null)};
-  top: ${props => (props.expand ? '50%' : '0')};
-  left: ${props => (props.expand ? '50%' : '0')};
-  transform: ${props =>
-    props.expand ? 'translate(-50%, -50%)' : 'translate(0%, 0%)'};
+  bottom: ${props => (props.expand ? '0' : null)};
+  left: ${props => (props.expand ? '50%' : null)};
+  transform: ${props => (props.expand ? 'translateX(-50%)' : null)};
   z-index: ${props => (props.expand ? 1000 : null)};
   min-height: 250px;
 `;
 
 const Card = styled.div`
-  overflow-y: auto;
-  width: ${props => (props.expand ? '90vw' : null)};
-  height: ${props => (props.expand ? '90vh' : '100%')};
+  overflow: auto;
+  width: ${props =>
+    props.expand
+      ? 'calc(280px + (680 - 280) * (100vw - 320px) / (750 - 320))'
+      : null};
+  height: ${props =>
+    props.expand
+      ? 'calc(270px + (680 - 270) * (100vh - 320px) / (750 - 320))'
+      : '100%'};
   border: 1px solid #e6e6e6;
   background: #fff;
   padding: 15px;
@@ -30,7 +35,7 @@ const Card = styled.div`
 
   &::after {
     content: '';
-    background: rgba(0, 0, 0, 0.25);
+    background: rgba(0, 0, 0, 0.35);
     position: fixed;
     top: 50%;
     left: 50%;
