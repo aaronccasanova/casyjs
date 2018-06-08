@@ -4,12 +4,16 @@ import CopyButton from './CopyButton';
 import ExpandingUsageBox from './ExpandingUsageBox';
 
 const Wrapper = styled.div`
+  transform: ${props => (props.expand ? 'translateX(-50%)' : null)};
   position: ${props => (props.expand ? 'fixed' : null)};
   bottom: ${props => (props.expand ? '0' : null)};
   left: ${props => (props.expand ? '50%' : null)};
-  transform: ${props => (props.expand ? 'translateX(-50%)' : null)};
   z-index: ${props => (props.expand ? 1000 : null)};
   min-height: 250px;
+  display: ${props => (props.expand ? 'flex' : null)};
+  flex-direction: ${props => (props.expand ? 'column' : null)};
+  justify-content: ${props => (props.expand ? 'flex-end' : null)};
+  align-items: ${props => (props.expand ? 'flex-end' : null)};
 `;
 
 const Card = styled.div`
@@ -20,7 +24,7 @@ const Card = styled.div`
       : null};
   height: ${props =>
     props.expand
-      ? 'calc(270px + (680 - 270) * (100vh - 320px) / (750 - 320))'
+      ? 'calc(225px + (630 - 225) * (100vh - 320px) / (750 - 320))'
       : '100%'};
   border: 1px solid #e6e6e6;
   background: #fff;
@@ -35,7 +39,7 @@ const Card = styled.div`
 
   &::after {
     content: '';
-    background: rgba(0, 0, 0, 0.35);
+    background: rgba(0, 0, 0, 0.75);
     position: fixed;
     top: 50%;
     left: 50%;
@@ -93,6 +97,20 @@ const MoreInfoButton = styled.div`
   }
 `;
 
+const X = styled.div`
+  /* ---------For Editing Layout---------- */
+  /* border: 2px solid red; */
+  /* ------------------------------------- */
+  display: ${props => (props.expand ? 'block' : 'none')};
+  /* position: fixed;
+  top: -40px;
+  right: 10px; */
+  color: white;
+  padding: 20px;
+  font-size: calc(20px + (25 - 20) * (100vmin - 320px) / (750 - 320));
+  cursor: pointer;
+`;
+
 class MasterCopyPasteCard extends Component {
   state = {
     expand: false
@@ -107,6 +125,9 @@ class MasterCopyPasteCard extends Component {
   render() {
     return (
       <Wrapper expand={this.state.expand}>
+        <X onClick={this.handleExpand} expand={this.state.expand}>
+          X
+        </X>
         <Card expand={this.state.expand}>
           <ComponentWrapper>
             <CPComponent>{this.props.children}</CPComponent>
