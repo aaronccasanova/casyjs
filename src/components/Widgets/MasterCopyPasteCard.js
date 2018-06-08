@@ -15,13 +15,13 @@ const Wrapper = styled.div`
   transition: transform ${props => (props.expand ? '300ms' : '923ms')},
     top ${props => (props.expand ? '300ms' : '923ms')},
     left ${props => (props.expand ? '300ms' : '923ms')};
-  /* transition: 300ms 100ms; */
 `;
 
 const Card = styled.div`
   overflow-y: auto;
   width: ${props => (props.expand ? '90vw' : null)};
-  height: 100%;
+  height: ${props => (props.expand ? '90vh' : '100%')};
+  /* height: 100%; */
   border: 1px solid #e6e6e6;
   background: #fff;
   padding: 15px;
