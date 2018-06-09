@@ -14,6 +14,7 @@ injectGlobal`
   --pri-off-white: #f9f9f9;
   --black: #3b3c36;
   --light-grey: #e6e6e6;
+  --cp-grey: #a9a9a9;
   box-sizing: border-box;
   overflow-x: hidden;
 }
@@ -28,6 +29,7 @@ injectGlobal`
   box-sizing: border-box;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight: 100;
+  color: var(--black);
 }
 
 *::before,

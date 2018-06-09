@@ -32,8 +32,8 @@ const StyledSyntaxHighlighter = styled(SyntaxHighlighter)`
 
 const ButtonWrapper = styled.div`
   position: absolute;
-  right: 25px;
-  bottom: 37px;
+  top: 8px;
+  right: 8px;
 `;
 
 const CodeWrapper = styled.div``;
@@ -41,11 +41,11 @@ const CodeWrapper = styled.div``;
 const UsageWrapper = styled.div`
   margin-bottom: 40px;
   position: relative;
+`;
 
-  h2 {
-    font-weight: 400;
-    font-size: calc(13px + (18 - 13) * (100vmin - 320px) / (750 - 320));
-  }
+const UsageDesc = styled.h2`
+  font-weight: 400;
+  font-size: calc(13px + (18 - 13) * (100vmin - 320px) / (750 - 320));
 `;
 
 class ExpandingUsageBox extends Component {
@@ -86,15 +86,17 @@ class ExpandingUsageBox extends Component {
     return codeArr.map((content, i, arr) => {
       if (i % 2 !== 0) {
         return (
-          <UsageWrapper key={i}>
-            <h2>{content}</h2>
-            <StyledSyntaxHighlighter language={'jsx'} style={prism}>
-              {arr[i + 1]}
-            </StyledSyntaxHighlighter>
-            <ButtonWrapper>
-              <UsageButton id={this.props.id} usage={arr[i + 1]} />
-            </ButtonWrapper>
-          </UsageWrapper>
+          <div key={i}>
+            <UsageDesc>{content}</UsageDesc>
+            <UsageWrapper>
+              <StyledSyntaxHighlighter language={'jsx'} style={prism}>
+                {arr[i + 1]}
+              </StyledSyntaxHighlighter>
+              <ButtonWrapper>
+                <UsageButton id={this.props.id} usage={arr[i + 1]} />
+              </ButtonWrapper>
+            </UsageWrapper>
+          </div>
         );
       }
       return null;

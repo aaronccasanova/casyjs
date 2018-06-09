@@ -3,45 +3,47 @@ import styled from 'styled-components';
 import axios from 'axios';
 
 const FormWrapper = styled.form`
+  /* ---- CSS Variables Section ----- */
+  --color: transparent;
+  /* --color: #f5f2f0; */
+  /* -------------------------------- */
   @import url('https://fonts.googleapis.com/css?family=Poppins:300');
-  background: white;
-  width: 120px;
-  height: 50px;
-  position: relative;
+  cursor: pointer;
   overflow: hidden;
+  background: var(--color);
+  width: calc(80px + (120 - 80) * (100vmin - 320px) / (750 - 320));
+  height: calc(25px + (50 - 25) * (100vmin - 320px) / (750 - 320));
+  position: relative;
   border-radius: 5px;
-  border: 1px solid #d6d6d6;
-  box-shadow: 2px 5px 15px rgba(0, 0, 0, 0.06);
+  border: 1px solid var(--black);
+  opacity: 0.5;
+  transition: opacity 250ms;
 
   & > * {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #efefef;
+    background: var(--color);
+  }
+
+  &:hover {
+    opacity: 1;
   }
 `;
 
 const HiddenInput = styled.textarea`
-  z-index: -1;
-  width: 110%;
-  height: 110%;
-  color: #efefef;
+  opacity: 0;
 `;
 
 const Button = styled.button`
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   z-index: 2;
-  font-family: 'Poppins', sans-serif;
-  color: #5b5b5b;
-  font-weight: 300;
-  font-size: 20px;
   width: 110%;
   height: 110%;
-  cursor: pointer;
-
-  &:hover {
-    background: #e4e4e4;
-  }
+  color: var(--black);
+  font-family: 'Poppins', sans-serif;
+  font-weight: 300;
+  font-size: calc(12px + (18 - 12) * (100vmin - 320px) / (750 - 320));
 `;
 
 class UsageButton extends Component {

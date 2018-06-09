@@ -47,7 +47,7 @@ const Home = () => {
         <VideoHeading>
           Using &#x26; Sharing<br />
           Components<br />
-          <span>Made as easy as CopyPasted...</span>
+          <span>Made as easy as CopyPaste...</span>
           {/* <span>Made as easy as possible...</span> */}
           {/* <span>Has never been this easy...</span> */}
           {/* <span>Just got a whole lot easier!</span> */}
