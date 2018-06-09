@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  border: 1px solid #e6e6e6;
+  border: 1px solid var(--light-grey);
   background: #fff;
   padding: 15px;
   border-radius: 3px;
@@ -44,7 +44,7 @@ const Card = styled.div`
 
 const ComponentWrapper = styled.div`
   border: 1px solid #e6e6e6;
-  background: #fafafa;
+  background: var(--pri-off-white);
   width: 100%;
   min-height: 200px;
   height: 100%;

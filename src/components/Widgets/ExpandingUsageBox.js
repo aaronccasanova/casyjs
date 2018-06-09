@@ -104,7 +104,7 @@ class ExpandingUsageBox extends Component {
   render() {
     return (
       <Wrapper expand={this.props.expand}>
-        <Heading>Usage</Heading>
+        {this.state.code ? <Heading>Usage</Heading> : null}
         <CodeWrapper>
           {this.state.code ? this.createCodeBlocks(this.state.code) : null}
         </CodeWrapper>

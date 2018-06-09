@@ -1,35 +1,45 @@
 import React, { Component } from 'react';
+import styled from 'styled-components';
 import { BrowserRouter } from 'react-router-dom';
-// ------ Components ------ //
+
 import CenteredDropNav from './components/NavigationComponents/Navbars/CenteredDropNav/CenteredDropNav';
 import Routes from './components/Routes/Routes';
 import BasicFooter from './components/NavigationComponents/Footers/BasicFooter';
+
 import ScrollToTop from './components/Widgets/ScrollToTop';
-// ------------------------ //
-// ------ Styles ------ //
-import styles from './App.css';
-// -------------------- //
 
 import { RoutesData } from './DumbyData';
 import { CompanyInfo } from './DumbyData';
+
+const PageWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  overflow: hidden;
+`;
+
+const RouteWrapper = styled.div`
+  margin-bottom: auto;
+  height: 100%;
+`;
 
 class App extends Component {
   render() {
     return (
       <BrowserRouter>
         {/* ------ Page Wrapper ------ */}
-        <div className={styles.pageWrapper}>
+        <PageWrapper>
           {/* ------ Header ------ */}
           <CenteredDropNav logo={CompanyInfo.name} routes={RoutesData} />
           {/* ------ Routes ------ */}
-          <div>
-            <ScrollToTop className={styles.Routes}>
+          <RouteWrapper>
+            <ScrollToTop>
               <Routes />
             </ScrollToTop>
-          </div>
+          </RouteWrapper>
           {/* ------ Footer ------ */}
           <BasicFooter />
-        </div>
+        </PageWrapper>
       </BrowserRouter>
     );
   }

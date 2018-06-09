@@ -7,7 +7,7 @@ const Wrapper = styled.div`
   /* ---- CSS Variables Section ----- */
   --nav-height: 120px;
   --underline-gap: 150%;
-  --box-shadow: 1px 4px 10px rgba(0, 0, 0, 0.17);
+  --box-shadow: 0 0 12px rgba(0, 0, 0, 0.17);
   /* -------------------------------- */
   width: 100%;
   min-height: var(--nav-height);
@@ -34,7 +34,7 @@ const NavBar = styled.div`
   align-items: center;
 
   @media (max-width: 960px) {
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.25);
+    box-shadow: var(--box-shadow);
     z-index: 1;
   }
 `;
@@ -56,7 +56,7 @@ const Logo = styled.h1`
 
   &::after {
     content: '';
-    background: #d1d1d1;
+    background: var(--light-grey);
     position: absolute;
     width: 250px;
     height: 2px;
@@ -78,7 +78,7 @@ const Logo = styled.h1`
 `;
 
 const LogoLink = styled(Link)`
-  color: #242424;
+  color: var(--black);
   text-decoration: none;
 `;
 
@@ -96,7 +96,7 @@ const LinksWrapper = styled.ul`
     width: 100%;
     position: absolute;
     left: 0;
-    bottom: ${props => (props.showMenu ? '0' : '50%')};
+    bottom: ${props => (props.showMenu ? '0%' : '50%')};
     transform: ${props =>
       props.showMenu ? 'translateY(100%)' : 'translateY(0%)'};
     transition: all 660ms cubic-bezier(0, 0, 0.34, 1);
@@ -105,7 +105,7 @@ const LinksWrapper = styled.ul`
 
 const Links = styled(Link)`
   margin-bottom: 20px;
-  color: #242424;
+  color: var(--black);
   text-decoration: none;
   display: block;
   padding: 15px;

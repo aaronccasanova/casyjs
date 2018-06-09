@@ -13,10 +13,20 @@ const Navigation = () => {
     <Wrapper>
       <MasterCopyPasteFlexGrid>
         <MasterCopyPasteCard id="Navigation/HamToXToggle">
-          <HamToXToggle />
+          <HamToXToggle
+            color="var(--black)"
+            width="50px"
+            height="30px"
+            thickness="4px"
+          />
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Navigation/FlattenHamToggle">
-          <FlattenHamToggle />
+          <FlattenHamToggle
+            color="var(--black)"
+            width="50px"
+            height="30px"
+            thickness="4px"
+          />
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>
