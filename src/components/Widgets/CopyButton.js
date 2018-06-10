@@ -15,6 +15,7 @@ const FormWrapper = styled.form`
   position: relative;
 
   & > * {
+    cursor: pointer;
     background: var(--color);
   }
 `;

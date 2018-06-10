@@ -35,7 +35,7 @@ const Card = styled.div`
     props.expand
       ? 'calc(280px + (680 - 280) * (100vw - 320px) / (750 - 320))'
       : null};
-
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
@@ -54,10 +54,11 @@ const ComponentWrapper = styled.div`
 `;
 
 const CPComponent = styled.div`
-  padding: 20px;
+  padding: 15px;
 `;
 
 const CopyPasteBar = styled.div`
+  overflow: hidden;
   width: 100%;
   min-height: 50px;
   padding: 10px 0;
@@ -65,6 +66,10 @@ const CopyPasteBar = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
+
+  & > :nth-child(2) {
+    transform: translateX(12px);
+  }
 `;
 
 const MoreInfoButton = styled.div`
