@@ -82,7 +82,7 @@ class ExpandingUsageBox extends Component {
   }
 
   createCodeBlocks = code => {
-    let codeArr = code.split('//');
+    let codeArr = code.split(/\/\*|\*\//g);
     return codeArr.map((content, i, arr) => {
       if (i % 2 !== 0) {
         return (
