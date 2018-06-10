@@ -35,7 +35,7 @@ const Card = styled.div`
     props.expand
       ? 'calc(280px + (680 - 280) * (100vw - 320px) / (750 - 320))'
       : null};
-  height: 100%;
+  height: ${props => (props.expand ? null : '100%')};
   display: flex;
   flex-direction: column;
   justify-content: space-between;
