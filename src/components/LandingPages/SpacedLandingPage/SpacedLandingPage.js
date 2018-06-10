@@ -21,10 +21,11 @@ const Image = styled.img`
     var(--x),
     var(--y)
     );
-`;
+    `;
 
 const Circle = styled.div`
-  color: var(--circle-color);
+  /* color: var(--circle-color); */
+  color: #d6d6d6;
   border: 5px solid;
   background: transparent;
   position: absolute;
@@ -38,10 +39,12 @@ const Circle = styled.div`
 `;
 
 const Heading = styled.h2`
+  color: #d6d6d6;
   font-size: ${vpScale(27, 40, 320, 960, 'vmin-px')};
 `;
 
 const Text = styled.p`
+  color: #d6d6d6;
   font-size: ${vpScale(16, 32, 320, 960, 'vmin-px')};
 `;
 class SpacedLandingPage extends Component {

@@ -92,6 +92,7 @@ const NavItems = styled.ul`
   display: flex;
 
   li {
+    color: #cfdcd3;
     padding: 20px 0 20px 20px;
     font-size: ${vpScale(18, 32, 320, 2500, 'vw-px')};
   }
@@ -275,6 +276,7 @@ const CardSide = styled.div`
   height: 100%;
 
   span {
+    color: #cfdcd3;
     padding: 0 30px;
   }
 `;

@@ -116,7 +116,7 @@ const LandingPages = () => {
           </ExampleBtnWrapper>
         </ComponentInfoWrapper>
       </Page>
-      <Page>
+      {/* <Page>
         <SpacedLandingPage />
         <ComponentInfoWrapper>
           <ExampleBtnWrapper>
@@ -124,7 +124,7 @@ const LandingPages = () => {
             <ViewExampleBtn href="https://dribbble.com/shots/4209495-SPACED" />
           </ExampleBtnWrapper>
         </ComponentInfoWrapper>
-      </Page>
+      </Page> */}
       <Page>
         <WhiskeyLanding />
         <ComponentInfoWrapper>
