@@ -24,7 +24,7 @@ const Wrapper = styled.div`
 const Icon = styled.i`
   color: var(--cp-pri-color);
   font-size: calc(50px + (60 - 50) * (100vmin - 320px) / (750 - 320));
-  margin: 15px;
+  margin-top: 35px;
 `;
 
 const HeadingOne = styled.h3`

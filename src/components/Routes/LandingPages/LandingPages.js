@@ -5,7 +5,7 @@ import ViewExampleBtn from './../../MiscComponents/ViewExampleBtn';
 import LayeredText from '../../LandingPages/LayeredText/LayeredText';
 import ApiccoLanding from '../../LandingPages/ApiccoLanding/ApiccoLanding';
 import PokeLandingPage from './../../LandingPages/PokeLandingPage/PokeLandingPage';
-import SpacedLandingPage from './../../LandingPages/SpacedLandingPage/SpacedLandingPage';
+// import SpacedLandingPage from './../../LandingPages/SpacedLandingPage/SpacedLandingPage';
 import WhiskeyLanding from './../../LandingPages/WhiskeyLanding/WhiskeyLanding';
 import LifeLanding from './../../LandingPages/LifeLanding/LifeLanding';
 import BoxyLanding from './../../LandingPages/BoxyLanding/BoxyLanding';
