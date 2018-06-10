@@ -5,7 +5,7 @@ const Wrapper = styled.div`
   /* ---- CSS Variables Section ----- */
   --trans-speed: 600ms;
   --cubic-curve: cubic-bezier(0.43, -0.06, 0, 1.07);
-  --pri-color: #9dc9f3;
+  --cp-pri-color: #9dc9f3;
   --brdr-width: 55%;
   --arrow-size: 40px;
   /* -------------------------------- */
@@ -15,7 +15,7 @@ const Wrapper = styled.div`
   z-index: 2;
 
   &::before {
-    border: 6px solid var(--pri-color);
+    border: 6px solid var(--cp-pri-color);
     background: transparent;
     content: '';
     position: absolute;
@@ -29,7 +29,7 @@ const Wrapper = styled.div`
   }
 
   &:hover::before {
-    background: var(--pri-color);
+    background: var(--cp-pri-color);
     width: 100%;
   }
 `;

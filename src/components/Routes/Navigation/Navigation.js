@@ -14,7 +14,7 @@ const Navigation = () => {
       <MasterCopyPasteFlexGrid>
         <MasterCopyPasteCard id="Navigation/HamToXToggle">
           <HamToXToggle
-            color="var(--black)"
+            color="var(--cp-black)"
             width="50px"
             height="30px"
             thickness="4px"
@@ -22,7 +22,7 @@ const Navigation = () => {
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Navigation/FlattenHamToggle">
           <FlattenHamToggle
-            color="var(--black)"
+            color="var(--cp-black)"
             width="50px"
             height="30px"
             thickness="4px"

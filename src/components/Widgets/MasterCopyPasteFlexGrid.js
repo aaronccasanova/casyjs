@@ -12,7 +12,7 @@ const Wrapper = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: var(--pri-off-white);
+  background: var(--cp-off-white);
   padding: 40px var(--grid-padding);
   width: var(--grid-width);
   min-height: var(--grid-height);

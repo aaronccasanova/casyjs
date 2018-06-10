@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Abril+Fatface');
 .PokeLandingPage {
   /* ---- CSS Variables Section ----- */
-  --black: #363636;
   --line-thickness: 5px;
   /* -------------------------------- */
   width: 100%;

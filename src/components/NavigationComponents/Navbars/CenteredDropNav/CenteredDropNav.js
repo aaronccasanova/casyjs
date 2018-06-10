@@ -56,7 +56,7 @@ const Logo = styled.h1`
 
   &::after {
     content: '';
-    background: var(--light-grey);
+    background: var(--cp-light-grey);
     position: absolute;
     width: 250px;
     height: 2px;
@@ -78,7 +78,7 @@ const Logo = styled.h1`
 `;
 
 const LogoLink = styled(Link)`
-  color: var(--black);
+  color: var(--cp-black);
   text-decoration: none;
 `;
 
@@ -105,7 +105,7 @@ const LinksWrapper = styled.ul`
 
 const Links = styled(Link)`
   margin-bottom: 20px;
-  color: var(--black);
+  color: var(--cp-black);
   text-decoration: none;
   display: block;
   padding: 15px;

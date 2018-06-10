@@ -19,7 +19,7 @@ const Wrapper = styled.div`
 `;
 
 const Card = styled.div`
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--cp-light-grey);
   background: #fff;
   padding: 15px;
   border-radius: 3px;
@@ -43,8 +43,8 @@ const Card = styled.div`
 `;
 
 const ComponentWrapper = styled.div`
-  border: 1px solid var(--light-grey);
-  background: var(--pri-off-white);
+  border: 1px solid var(--cp-light-grey);
+  background: var(--cp-off-white);
   width: 100%;
   min-height: 200px;
   height: 100%;
@@ -74,7 +74,7 @@ const CopyPasteBar = styled.div`
 
 const MoreInfoButton = styled.div`
   cursor: pointer;
-  border: 1px solid var(--light-grey);
+  border: 1px solid var(--cp-light-grey);
   display: flex;
   margin-right: auto;
   padding: 6px;
@@ -124,7 +124,7 @@ const FixedX = styled.h2`
   font-size: calc(40px + (80 - 40) * (100vmin - 320px) / (750 - 320));
   width: 100%;
   height: 100%;
-  color: var(--light-grey);
+  color: var(--cp-light-grey);
 `;
 
 class MasterCopyPasteCard extends Component {

@@ -19,7 +19,7 @@ const BgColorContainer = styled.div`
 const MainHeading = styled.h2`
   cursor: pointer;
   font-family: 'Abril Fatface', cursive;
-  border-bottom: var(--line-thickness) solid var(--black);
+  border-bottom: var(--line-thickness) solid var(--cp-black);
   margin: 0;
   position: absolute;
   font-size: calc(30px + (70 - 30) * (100vw - 320px) / (960 - 320));
@@ -29,7 +29,7 @@ const MainHeading = styled.h2`
   &::after {
     cursor: auto;
     content: '';
-    background: var(--black);
+    background: var(--cp-black);
     position: absolute;
     top: 100%;
     right: -15%;

@@ -22,15 +22,15 @@ const Buttons = () => {
       <MasterCopyPasteFlexGrid>
         <MasterCopyPasteCard id="Buttons/DownButton">
           <DownButton
-            btnColor="var(--pri-color)"
-            arrowColor="var(--black)"
+            btnColor="var(--cp-pri-color)"
+            arrowColor="var(--cp-black)"
             arrowHover="white"
           />
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/DarkenButton">
           <DarkenButton
-            btnColor="var(--pri-color)"
-            hoverColor="var(--pri-hover)"
+            btnColor="var(--cp-pri-color)"
+            hoverColor="var(--cp-pri-hover)"
             fontColor="white"
           >
             Hello
@@ -38,18 +38,18 @@ const Buttons = () => {
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/OutlineButton">
           <OutlineButton
-            brdrColor="var(--pri-color)"
-            fillColor="var(--pri-off-white)"
+            brdrColor="var(--cp-pri-color)"
+            fillColor="var(--cp-off-white)"
             // fontHoverColor optional if you want a specific color on hover
-            fontHoverColor="var(--pri-off-white)"
+            fontHoverColor="var(--cp-off-white)"
           >
             Switcheroo
           </OutlineButton>
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/BlockButton">
           <BlockButton
-            btnColor="var(--pri-color)"
-            hoverColor="var(--pri-hover)"
+            btnColor="var(--cp-pri-color)"
+            hoverColor="var(--cp-pri-hover)"
             fontColor="white"
           >
             100% Contained
@@ -57,29 +57,29 @@ const Buttons = () => {
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/OutlineButtonGroup">
           <OutlineButtonGroup
-            brdrColor="var(--pri-color)"
-            fillColor="var(--pri-off-white)"
+            brdrColor="var(--cp-pri-color)"
+            fillColor="var(--cp-off-white)"
             // fontHoverColor optional if you want a specific color on hover
-            fontHoverColor="var(--pri-off-white)"
+            fontHoverColor="var(--cp-off-white)"
           />
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/DarkenButtonGroup">
           <DarkenButtonGroup
-            btnColor="var(--pri-color)"
-            hoverColor="var(--pri-hover)"
+            btnColor="var(--cp-pri-color)"
+            hoverColor="var(--cp-pri-hover)"
             fontColor="white"
           />
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/SlideArrowButton">
-          <SlideArrowButton btnColor="var(--pri-color)" fontColor="white">
+          <SlideArrowButton btnColor="var(--cp-pri-color)" fontColor="white">
             Move Aside
           </SlideArrowButton>
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Links/AniColorLink">
           <AniColorLink
             href="http://www.casyjs.com"
-            aniColor="var(--pri-color)"
-            fontColor="var(--black)"
+            aniColor="var(--cp-pri-color)"
+            fontColor="var(--cp-black)"
           >
             Campground
           </AniColorLink>

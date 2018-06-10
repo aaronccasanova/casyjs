@@ -15,7 +15,7 @@ const FormWrapper = styled.form`
   height: calc(25px + (50 - 25) * (100vmin - 320px) / (750 - 320));
   position: relative;
   border-radius: 5px;
-  border: 1px solid var(--black);
+  border: 1px solid var(--cp-black);
   opacity: 0.5;
   transition: opacity 250ms;
 
@@ -40,7 +40,7 @@ const Button = styled.button`
   z-index: 2;
   width: 110%;
   height: 110%;
-  color: var(--black);
+  color: var(--cp-black);
   font-family: 'Poppins', sans-serif;
   font-weight: 300;
   font-size: calc(12px + (18 - 12) * (100vmin - 320px) / (750 - 320));

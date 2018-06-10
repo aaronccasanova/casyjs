@@ -7,13 +7,13 @@ import { injectGlobal } from 'styled-components';
 injectGlobal`
 @import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,500|Raleway:300,400,500');
 :root {
-  --pri-color: #79bec6;
-  --pri-hover: #5d9ba2;
-  --sec-color: #f5d77c;
-  --sec-hover: #e8c766;
-  --pri-off-white: #f9f9f9;
-  --black: #3b3c36;
-  --light-grey: #e6e6e6;
+  --cp-pri-color: #79bec6;
+  --cp-pri-hover: #5d9ba2;
+  --cp-sec-color: #f5d77c;
+  --cp-sec-hover: #e8c766;
+  --cp-off-white: #f9f9f9;
+  --cp-black: #3b3c36;
+  --cp-light-grey: #e6e6e6;
   --cp-grey: #a9a9a9;
   box-sizing: border-box;
   overflow-x: hidden;
@@ -29,7 +29,7 @@ injectGlobal`
   box-sizing: border-box;
   font-family: Montserrat, Arial, Helvetica, sans-serif;
   font-weight: 100;
-  color: var(--black);
+  color: var(--cp-black);
 }
 
 *::before,
