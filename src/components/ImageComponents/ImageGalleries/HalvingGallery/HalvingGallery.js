@@ -1,6 +1,6 @@
 import React from 'react';
+import styled from 'styled-components';
 import UnderlineTextImage from '../../ImageEffects/UnderlineTextImage/UnderlineTextImage';
-import styles from './HalvingGallery.css';
 
 const categories = [
   {
@@ -40,19 +40,77 @@ const categories = [
   }
 ];
 
+/*
+HalvingGallery has two containers
+(provides better control over the grid gap)
+
+Main Wrapper - HalvingGallery
+use margin or padding to create space around the actual grid
+
+Sub Wrapper - ImageContainer
+recommend to only adjust --gap,
+and not mess with margin or padding
+
+Special Note: must use overflow-x:hidden on main root because the negative margin
+*/
+
+const MainWrapper = styled.div`
+  /* ---- CSS Variables Section ----- */
+  --gallery-width: 100%;
+  --gallery-height: 50vh;
+  --gallery-padding: 20px;
+  --gap: 10px;
+  --pri-img-width: 33.33%;
+  --sec-img-width: 50%;
+  /* -------------------------------- */
+  margin: 0 auto;
+  padding: var(--gallery-padding);
+  width: var(--gallery-width);
+  min-height: var(--gallery-height);
+`;
+
+const SubWrapper = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: calc(var(--gap) * -1);
+`;
+
+const Image = styled.div`
+  /* ---------For Editing Layout---------- */
+  background: #c5c5c5;
+  /* ------------------------------------- */
+  margin: var(--gap);
+  flex: calc(var(--pri-img-width) - var(--gap) * 2);
+
+  &:nth-of-type(5n + 4),
+  &:nth-of-type(5n) {
+    --pri-img-width: var(--sec-img-width);
+  }
+
+  @media (max-width: 820px) {
+    --pri-img-width: var(--sec-img-width);
+
+    &:nth-of-type(3n) {
+      --pri-img-width: 100%;
+    }
+  }
+`;
+
 const HalvingGallery = () => {
   return (
-    <div className={styles.HalvingGallery}>
-      <div className={styles.imageContainer}>
+    <MainWrapper>
+      <SubWrapper>
         {categories.map(category => {
           return (
-            <div key={category.title} className={styles.imageItem}>
+            <Image key={category.title}>
               <UnderlineTextImage category={category} />
-            </div>
+            </Image>
           );
         })}
-      </div>
-    </div>
+      </SubWrapper>
+    </MainWrapper>
   );
 };
 
