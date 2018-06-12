@@ -5,8 +5,8 @@ import { vpScale } from './../../../helpers';
 const Wrapper = styled.footer`
   /* ---- CSS Variables Section ----- */
   --grid-brdr: ${0 ? 'red' : 'none'};
-  --line-color: #e1e1e1;
-  --bg-color: #f9f9f9;
+  --line-color: var(--cp-light-grey);
+  --bg-color: var(--cp-off-white);
   /* -------------------------------- */
   /* ---------For Editing Layout---------- */
   border: 2px solid var(--grid-brdr);
