@@ -55,16 +55,7 @@ export default App;
 // vid 118 setup node express and react
 
 // ------ Todo ------ //
-// make OFCard resuable
-// tidy up LayeredText Component on LandingPages
-// finish ressiz text on apiccoLanding
-// cleaned up layered text
-// add ScaleWithState (sws) to App.js and pass down to all componenets
-// ^^^ (currently a ton of resize event listener going on)
 // search for all class components and see if they can refactor to functional comp
 // create styled element snippet with essential starting point props  // const ${name} = styled.${type} etc...
 
 // ====== open sources ideas ======
-// apicco.com side nav / link animation in nav
-
-// copybutton, buttons, test, home, lifelanding
