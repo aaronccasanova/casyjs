@@ -4,12 +4,10 @@ import { vpScale } from './../../../helpers';
 
 const Wrapper = styled.footer`
   /* ---- CSS Variables Section ----- */
-  --grid-brdr: ${0 ? 'red' : 'none'};
   --line-color: var(--cp-light-grey);
   --bg-color: var(--cp-off-white);
   /* -------------------------------- */
   /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
   background: var(--bg-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   /* ------------------------------------- */
@@ -36,9 +34,6 @@ const Wrapper = styled.footer`
 `;
 
 const Email = styled.p`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: 1 / -1;
   grid-row: 2 / 3;
   display: flex;
@@ -128,9 +123,6 @@ const Link = styled.a`
 `;
 
 const Copyright = styled.p`
-  /* ---------For Editing Layout---------- */
-  border: 2px solid var(--grid-brdr);
-  /* ------------------------------------- */
   grid-column: 1 / -1;
   grid-row: 2 / 3;
   display: flex;
@@ -145,14 +137,12 @@ const Copyright = styled.p`
 `;
 
 const MainLine = styled.div`
-  border: 2px solid var(--grid-brdr);
   grid-column: 1 / Content-end;
   grid-row: 2 / 3;
   height: 2px;
   background: var(--line-color);
 `;
 const HighLine = styled.div`
-  border: 2px solid var(--grid-brdr);
   grid-column: 2 / 3;
   grid-row: 1 / 2;
   justify-self: end;
@@ -162,7 +152,6 @@ const HighLine = styled.div`
   transform: translateY(23%);
 `;
 const MidLine = styled.div`
-  border: 2px solid var(--grid-brdr);
   grid-column: 3 / 4;
   grid-row: 1 / 2;
   justify-self: end;
@@ -172,7 +161,6 @@ const MidLine = styled.div`
   transform: translateY(48%);
 `;
 const LowLine = styled.div`
-  border: 2px solid var(--grid-brdr);
   grid-column: 4 / 5;
   grid-row: 1 / 2;
   justify-self: end;
