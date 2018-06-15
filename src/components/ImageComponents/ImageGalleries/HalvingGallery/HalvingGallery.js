@@ -57,7 +57,8 @@ Special Note: must use overflow-x:hidden on main root because the negative margi
 const MainWrapper = styled.div`
   /* ---- CSS Variables Section ----- */
   --gallery-width: 100%;
-  --gallery-height: 50vh;
+  --gallery-height: 100%;
+  /* --gallery-height: 50vh; */
   --gallery-padding: 20px;
   --gap: 10px;
   --pri-img-width: 33.33%;

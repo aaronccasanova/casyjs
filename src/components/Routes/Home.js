@@ -13,6 +13,7 @@ const VideoWrapper = styled.div`
 const VideoHeading = styled.h2`
   border: 2px solid #ccc;
   background: #fbfbfb;
+  background: var(--cp-off-white);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 
   flex: 1 1 100%;
