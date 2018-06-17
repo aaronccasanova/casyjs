@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -25,22 +25,21 @@ const Image = styled.img`
   opacity: 0.55;
 `;
 
-const MainHeading = styled.h1`
+const AbsoluteHeading = css`
   color: white;
   position: absolute;
   left: 50%;
   transform: translate(-50%, -50%);
+`;
 
+const MainHeading = styled.h1`
+  ${AbsoluteHeading};
   font-weight: bold;
   top: 23%;
 `;
 
 const SubHeading = styled.h2`
-  color: white;
-  position: absolute;
-  left: 50%;
-  transform: translate(-50%, -50%);
-
+  ${AbsoluteHeading};
   white-space: nowrap;
   top: 33%;
 `;
