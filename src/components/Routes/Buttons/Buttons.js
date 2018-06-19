@@ -10,6 +10,7 @@ import DarkenButtonGroup from '../../ButtonComponents/DarkenButtonGroup/DarkenBu
 import OutlineButtonGroup from '../../ButtonComponents/OutlineButtonGroup/OutlineButtonGroup';
 import SlideArrowButton from '../../ButtonComponents/SlideArrowButton/SlideArrowButton';
 import AniColorLink from './../../LinkComponents/AniColorLink';
+import GrowingLoader from './../../LoaderComponents/GrowingLoader';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -83,6 +84,9 @@ const Buttons = () => {
           >
             Campground
           </AniColorLink>
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard id="Links/AniColorLink">
+          <GrowingLoader />
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>
