@@ -28,7 +28,7 @@ const arrowFixedAni = keyframes`
 `;
 
 const Transition = css`
-  transition: all 0.5s var(--ease);
+  transition: all 500ms var(--ease);
 `;
 
 const Wrapper = styled.div`
@@ -61,7 +61,7 @@ const SVG = styled.svg`
   &:hover ${ArrowFixed},
   &:hover ${Path} {
     transition: all 1s var(--ease);
-    fill: var(--cp-pri-color);
+    fill: ${props => props.color ? props.color : '#79bec6'};
   }
 
   &:hover ${Arrow} {
@@ -77,10 +77,11 @@ const NextButton = props => {
     <Wrapper>
       <SVG
         size={props.size}
+        color={props.color}
         viewBox="0 0 18 17"
         version="1.1"
-        // xmlns="http://www.w3.org/2000/svg"
-        // xlink="http://www.w3.org/1999/xlink"
+        xmlns="http://www.w3.org/2000/svg"
+        xlink="http://www.w3.org/1999/xlink"
       >
         <G left={props.left}>
           <Arrow points="16.3746667 8.33860465 7.76133333 15.3067621 6.904 14.3175671 14.2906667 8.34246869 6.908 2.42790698 7.76 1.43613596" />
