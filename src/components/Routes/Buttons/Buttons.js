@@ -90,7 +90,8 @@ const Buttons = () => {
           <GrowingLoader color="var(--cp-pri-color)" />
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Loaders/GrowingLoader">
-          <DomeSwitchButton btnSize="80px" />
+          <DomeSwitchButton btnSize="80px" label="+" />
+          {/* <DomeSwitchButton btnSize="80px" label="–" /> */}
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>

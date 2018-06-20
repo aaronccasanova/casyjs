@@ -6,9 +6,8 @@ const Toggle = styled.div`
   --size: ${props => (props.btnSize ? props.btnSize : '100px')};
   /* -------------------------------- */
   /* fz set for em unit used on button blur */
-  font-size: 20px;
+  font-size: 8px;
 
-  cursor: pointer;
   overflow: hidden;
   position: relative;
   width: var(--size);
@@ -53,6 +52,7 @@ const Button = styled.span`
     inset 0 8px 20px 0 rgba(0, 0, 0, 0.2),
     inset 0 0 5px 1px rgba(255, 255, 255, 0.6);
 
+  cursor: pointer;
   display: block;
   position: absolute;
   top: 50%;
@@ -65,11 +65,12 @@ const Button = styled.span`
   background: #ccd0d4;
   box-shadow: ${props =>
     props.toggle ? 'var(--active-shadow)' : 'var(--inactive-shadow)'};
-  filter: blur(0.05em);
+  filter: blur(0.1em);
   transition: all 300ms cubic-bezier(0.23, 1, 0.32, 1);
 `;
 
 const Label = styled.span`
+  cursor: pointer;
   user-select: none;
   display: block;
   text-align: center;
@@ -103,7 +104,9 @@ class DomeSwitchButton extends Component {
     return (
       <Toggle onClick={this.handleClick} btnSize={this.props.btnSize}>
         <Button toggle={this.state.toggle} />
-        <Label toggle={this.state.toggle}>+</Label>
+        <Label toggle={this.state.toggle}>
+          {this.props.label ? this.props.label : '+'}
+        </Label>
       </Toggle>
     );
   }
