@@ -11,6 +11,7 @@ import OutlineButtonGroup from '../../ButtonComponents/OutlineButtonGroup/Outlin
 import SlideArrowButton from '../../ButtonComponents/SlideArrowButton/SlideArrowButton';
 import AniColorLink from './../../LinkComponents/AniColorLink';
 import GrowingLoader from './../../LoaderComponents/GrowingLoader';
+import DomeSwitchButton from './../../ButtonComponents/DomeSwitchButton/DomeSwitchButton';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -85,8 +86,11 @@ const Buttons = () => {
             Campground
           </AniColorLink>
         </MasterCopyPasteCard>
-        <MasterCopyPasteCard id="Links/AniColorLink">
-          <GrowingLoader />
+        <MasterCopyPasteCard id="Loaders/GrowingLoader">
+          <GrowingLoader color="var(--cp-pri-color)" />
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard id="Loaders/GrowingLoader">
+          <DomeSwitchButton btnSize="80px" />
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>
