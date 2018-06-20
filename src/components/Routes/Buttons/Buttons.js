@@ -12,6 +12,7 @@ import SlideArrowButton from '../../ButtonComponents/SlideArrowButton/SlideArrow
 import AniColorLink from './../../LinkComponents/AniColorLink';
 import GrowingLoader from './../../LoaderComponents/GrowingLoader';
 import DomeSwitchButton from './../../ButtonComponents/DomeSwitchButton/DomeSwitchButton';
+import NextButton from '../../ButtonComponents/NextButton/NextButton';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -91,6 +92,10 @@ const Buttons = () => {
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Loaders/GrowingLoader">
           <DomeSwitchButton btnSize="80px" label="+" />
+          {/* <DomeSwitchButton btnSize="80px" label="–" /> */}
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard id="Buttons/NextButton">
+          <NextButton right />
           {/* <DomeSwitchButton btnSize="80px" label="–" /> */}
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
