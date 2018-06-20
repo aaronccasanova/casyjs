@@ -95,7 +95,7 @@ const Buttons = () => {
           {/* <DomeSwitchButton btnSize="80px" label="–" /> */}
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/NextButton">
-          <NextButton right />
+          <NextButton left />
           {/* <DomeSwitchButton btnSize="80px" label="–" /> */}
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
