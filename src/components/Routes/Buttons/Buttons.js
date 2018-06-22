@@ -13,6 +13,7 @@ import AniColorLink from './../../LinkComponents/AniColorLink';
 import GrowingLoader from './../../LoaderComponents/GrowingLoader';
 import DomeSwitchButton from './../../ButtonComponents/DomeSwitchButton/DomeSwitchButton';
 import NextButton from '../../ButtonComponents/NextButton/NextButton';
+import ThumbnailSlider from '../../ButtonComponents/ThumbnailSlider/ThumbnailSlider';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -95,7 +96,19 @@ const Buttons = () => {
           {/* <DomeSwitchButton btnSize="80px" label="–" /> */}
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/NextButton">
-          <NextButton left size="75px" color="var(--cp-sec-color)" />
+          <NextButton left size="75px" color="lightsteelblue" />
+          {/* <NextButton left size="75px" color="var(--cp-sec-color)" /> */}
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard id="Buttons/NextButton">
+          <ThumbnailSlider
+            images={[
+              'https://cdn.rawgit.com/huijing/filerepo/gh-pages/lw1.jpg',
+              'https://cdn.rawgit.com/huijing/filerepo/gh-pages/lw2.jpg',
+              'https://cdn.rawgit.com/huijing/filerepo/gh-pages/lw3.jpg',
+              'https://cdn.rawgit.com/huijing/filerepo/gh-pages/lw4.jpg',
+              'https://cdn.rawgit.com/huijing/filerepo/gh-pages/lw5.jpg'
+            ]}
+          />
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>

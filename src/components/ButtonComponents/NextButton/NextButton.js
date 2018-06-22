@@ -28,7 +28,7 @@ const arrowFixedAni = keyframes`
 `;
 
 const Transition = css`
-  transition: all 500ms var(--ease);
+  transition: all 750ms var(--ease);
 `;
 
 const Wrapper = styled.div`
@@ -60,15 +60,14 @@ const SVG = styled.svg`
   &:hover ${Arrow},
   &:hover ${ArrowFixed},
   &:hover ${Path} {
-    transition: all 1s var(--ease);
     fill: ${props => props.color ? props.color : '#79bec6'};
   }
 
   &:hover ${Arrow} {
-    animation: ${arrowAni} 2.5s var(--ease) infinite;
+    animation: ${arrowAni} 2500ms var(--ease) infinite;
   }
   &:hover ${ArrowFixed} {
-    animation: ${arrowFixedAni} 2.5s var(--ease) infinite;
+    animation: ${arrowFixedAni} 2500ms var(--ease) infinite;
   }
 `;
 
