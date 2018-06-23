@@ -24,11 +24,11 @@ const Wrapper = styled.div`
 
 const Slides = styled.ul`
   position: relative;
-  z-index: 99;
+  z-index: 4;
 
   list-style: none;
   overflow: hidden;
-  width: 75vmin;
+  width: 70vmin;
   height: 100vmin;
 
   img {
@@ -39,7 +39,7 @@ const Slides = styled.ul`
 `;
 
 const LargeSlide = styled.li`
-  width: 75vmin;
+  width: 70vmin;
   height: 100vmin;
   position: absolute;
   z-index: ${props => (props.slide ? '3' : '1')};
@@ -55,13 +55,13 @@ const Thumbnails = styled.ul`
   li {
     flex: auto;
   }
+`;
 
-  img {
-    width: 30vmin;
-    height: 20vmin;
-    object-fit: cover;
-    object-position: top;
-  }
+const ThumbnailImg = styled.img`
+  width: 30vmin;
+  height: ${props => (props.height ? `${100 / props.height}vmin` : null)};
+  object-fit: cover;
+  object-position: top;
 `;
 
 class ThumbnailSlider extends Component {
@@ -100,7 +100,12 @@ class ThumbnailSlider extends Component {
           {images &&
             images.map((image, i) => (
               <li key={i}>
-                <img src={image} alt={i} onClick={this.slideIn} />
+                <ThumbnailImg
+                  src={image}
+                  alt={i}
+                  onClick={this.slideIn}
+                  height={this.state.slides.length}
+                />
               </li>
             ))}
         </Thumbnails>

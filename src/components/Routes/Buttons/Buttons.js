@@ -97,7 +97,6 @@ const Buttons = () => {
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/NextButton">
           <NextButton left size="75px" color="lightsteelblue" />
-          {/* <NextButton left size="75px" color="var(--cp-sec-color)" /> */}
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/NextButton">
           <ThumbnailSlider
