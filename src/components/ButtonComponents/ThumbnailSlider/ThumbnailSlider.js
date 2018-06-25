@@ -26,8 +26,8 @@ const Slides = styled.ul`
   position: relative;
   z-index: 4;
 
-  list-style: none;
   overflow: hidden;
+  list-style: none;
   width: 70vmin;
   height: 100vmin;
 
