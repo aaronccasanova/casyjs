@@ -17,31 +17,39 @@ const Hidden = keyframes`
 `;
 
 const Wrapper = styled.div`
+  /* ---- CSS Variables Section ----- */
+  --height: ${props => (props.height ? props.height : '320px')};
+  --width: ${props => (props.width ? props.width : '100%')};
+  /* -------------------------------- */
   overflow: hidden;
   display: flex;
   justify-content: center;
+  width: var(--width);
+  height: var(--height);
 `;
 
 const Slides = styled.ul`
   position: relative;
   z-index: 4;
 
-  overflow: hidden;
   list-style: none;
-  width: 70vmin;
-  height: 100vmin;
+  width: 100%;
+  height: 100%;
 
   img {
-    height: 100vmin;
+    width: 100%;
+    height: 100%;
     object-fit: cover;
     object-position: top;
   }
 `;
 
 const LargeSlide = styled.li`
-  width: 70vmin;
-  height: 100vmin;
+  width: 100%;
+  height: 100%;
   position: absolute;
+  top: 0;
+  right: 0;
   z-index: ${props => (props.slide ? '3' : '1')};
   animation: ${props => (props.slide ? `${Slide} 1s 1` : `${Hidden} 1s 1`)};
 `;
@@ -52,14 +60,19 @@ const Thumbnails = styled.ul`
   flex-direction: column;
   line-height: 0;
 
+  /* width of thumbnail img */
+  width: 35%;
+
   li {
     flex: auto;
   }
 `;
 
 const ThumbnailImg = styled.img`
-  width: 30vmin;
-  height: ${props => (props.height ? `${100 / props.height}vmin` : null)};
+  width: 100%;
+  /* thumbHeight is the number of slides, used to divide height evenly by overall height */
+  height: ${props =>
+    props.thumbHeight ? `calc(var(--height) / ${props.thumbHeight})` : null};
   object-fit: cover;
   object-position: top;
 `;
@@ -86,7 +99,7 @@ class ThumbnailSlider extends Component {
     const { images } = this.props;
 
     return (
-      <Wrapper>
+      <Wrapper height={this.props.height} width={this.props.width}>
         <Slides>
           {images &&
             images.map((image, i) => (
@@ -104,7 +117,7 @@ class ThumbnailSlider extends Component {
                   src={image}
                   alt={i}
                   onClick={this.slideIn}
-                  height={this.state.slides.length}
+                  thumbHeight={this.state.slides.length}
                 />
               </li>
             ))}

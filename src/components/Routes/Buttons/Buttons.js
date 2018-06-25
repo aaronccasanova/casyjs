@@ -100,6 +100,8 @@ const Buttons = () => {
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/NextButton">
           <ThumbnailSlider
+            height="400px"
+            width="100%"
             images={[
               'https://cdn.rawgit.com/huijing/filerepo/gh-pages/lw1.jpg',
               'https://cdn.rawgit.com/huijing/filerepo/gh-pages/lw2.jpg',
