@@ -114,16 +114,44 @@ const Buttons = () => {
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/NextButton">
           <CircleSlider
-            headingOne="Rise"
-            headingTwo="And"
-            headingThree="Shine"
-            headingFour="CPComponents"
-            colorOne="#77B395"
-            colorTwo="#4B956F"
-            colorThree="#77B395"
-            colorFour="#4B956F"
-            colorCenter="#c5a452"
+            size="70vw"
+            speed="600ms"
+            heading1="Copy"
+            heading2="Paste"
+            heading3="Create"
+            heading4="CPC"
+            color1="#76B8B8"
+            color2="#459393"
+            color3="#76B8B8"
+            color4="#459393"
+            centerCircleColor="#176C6C"
           />
+          {/* <CircleSlider
+            size="80vw"
+            speed="700ms"
+            heading1="Rise"
+            heading2="And"
+            heading3="Shine"
+            heading4="Love"
+            color1="#D3AC47"
+            color2="#D39547"
+            color3="#D3AC47"
+            color4="#D39547"
+            centerCircleColor="#4F7E9C"
+          /> */}
+          {/* <CircleSlider
+            size="80vw"
+            speed="700ms"
+            heading1="Whose"
+            heading2="Got"
+            heading3="The"
+            heading4="Herb"
+            color1="#77B395"
+            color2="#4B956F"
+            color3="#77B395"
+            color4="#4B956F"
+            centerCircleColor="#c5a452"
+          /> */}
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>

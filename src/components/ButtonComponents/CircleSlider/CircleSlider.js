@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { keyframes, css } from 'styled-components';
 
 const Slider = styled.div`
   /* ---- CSS Variables Section ----- */
-  --width: 70vw;
-  /* --width: 900px; */
+  --speed: ${props => (props.speed ? props.speed : '500ms')};
+  --width: ${props => (props.size ? props.size : '70vw')};
   --height: calc(var(--width) / 2);
   /* -------------------------------- */
   overflow: hidden;
@@ -15,18 +15,18 @@ const Slider = styled.div`
 `;
 
 const PrevNextStyles = css`
-  display: block;
+  font-size: calc(var(--width) / 30);
   position: absolute;
   top: 50%;
   padding: 10px;
   z-index: 999;
-  background: rgba(0, 0, 0, 0.2);
-  color: rgba(255, 255, 255, 0.6);
-  transition: all 500ms;
+  background: black;
+  color: white;
+  opacity: 0.5;
+  transition: opacity var(--speed);
 
   &:hover {
-    background: rgba(0, 0, 0, 0.6);
-    color: white;
+    opacity: 0.7;
   }
 `;
 
@@ -52,14 +52,14 @@ const NextButton = styled.button`
   }
 `;
 
-const Foreground = styled.div`
+const CenterCircle = styled.div`
   position: absolute;
   left: 50%;
   top: 100%;
   transform: translate(-50%, -50%);
   z-index: 9999;
   border-radius: 50%;
-  background: ${props => (props.colorCenter ? props.colorCenter : '#dee1b6')};
+  background: ${props => (props.color ? props.color : '#dee1b6')};
   width: calc(var(--width) / 3);
   height: calc(var(--width) / 3);
 `;
@@ -72,7 +72,7 @@ const Wrap = styled.div`
   width: calc(var(--width) * 1.5);
   height: calc(var(--width) * 1.5);
   border-radius: 50%;
-  transition: transform 500ms ease-in-out;
+  transition: transform var(--speed) ease-in-out;
 
   transform: ${props => (props.rotate ? `rotate(${props.rotate}deg)` : null)};
 
@@ -87,53 +87,102 @@ const Box = css`
   align-items: center;
 
   span {
-    font-weight: bold;
-    font-size: calc(16px + (50 - 16) * (100vw - 320px) / (1500 - 320));
+    font-size: calc(var(--width) / 15);
     padding-top: calc(var(--width) / 2.2);
-    transition: color 350ms 150ms;
+    font-weight: bold;
+    opacity: 0;
+    color: white;
+  }
+`;
+
+const FadeIn = keyframes`
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+`;
+
+const FadeOut = keyframes`
+  0% {
+    opacity: 1;
+  }
+
+  100% {
+    opacity: 0;
   }
 `;
 
 const BoxOne = styled.div`
   order: 1;
   ${Box};
-  background: ${props => (props.colorOne ? props.colorOne : '#73c8a9')};
+  background: ${props => (props.color ? props.color : '#73c8a9')};
   span {
-    color: ${props => (props.count === 1 ? 'white' : 'transparent')};
+    animation: ${props =>
+      props.count === 1
+        ? `calc(var(--speed) / 2) calc(var(--speed) / 2) 1 forwards ${FadeIn}`
+        : props.noFadeOut
+          ? null
+          : `calc(var(--speed) / 2) 1 forwards ${FadeOut}`};
+
     transform: rotate(-45deg);
   }
 `;
 const BoxTwo = styled.div`
   order: 2;
   ${Box};
-  background: ${props => (props.colorTwo ? props.colorTwo : '#bd5532')};
+  background: ${props => (props.color ? props.color : '#bd5532')};
   span {
-    color: ${props => (props.count === 0 ? 'white' : 'transparent')};
+    animation: ${props =>
+      props.count === 0
+        ? `calc(var(--speed) / 2) calc(var(--speed) / 2) 1 forwards ${FadeIn}`
+        : props.noFadeOut
+          ? null
+          : `calc(var(--speed) / 2) 1 forwards ${FadeOut}`};
+
     transform: rotate(45deg);
   }
 `;
 const BoxThree = styled.div`
   order: 4;
   ${Box};
-  background: ${props => (props.colorThree ? props.colorThree : '#e1b866')};
+  background: ${props => (props.color ? props.color : '#e1b866')};
   span {
-    color: ${props => (props.count === 1 ? 'white' : 'transparent')};
+    animation: ${props =>
+      props.count === 1
+        ? `calc(var(--speed) / 2) calc(var(--speed) / 2) 1 forwards ${FadeIn}`
+        : props.noFadeOut
+          ? null
+          : `calc(var(--speed) / 2) 1 forwards ${FadeOut}`};
+
     transform: rotate(135deg);
   }
 `;
 const BoxFour = styled.div`
   order: 3;
   ${Box};
-  background: ${props => (props.colorFour ? props.colorFour : '#373b44')};
+  background: ${props => (props.color ? props.color : '#373b44')};
   span {
-    color: ${props => (props.count === 0 ? 'white' : 'transparent')};
+    animation: ${props =>
+      props.count === 0
+        ? `calc(var(--speed) / 2) calc(var(--speed) / 2) 1 forwards ${FadeIn}`
+        : props.noFadeOut
+          ? null
+          : `calc(var(--speed) / 2) 1 forwards ${FadeOut}`};
+
     transform: rotate(-135deg);
   }
 `;
 
 class CircleSlider extends Component {
   state = {
+    // Does not allow fadeOut animation on mount
+    noFadeOut: true,
+    // Controls rotation
     rotate: 45,
+    // Toggles FadeIn === 1 and FadeOut === 0
     count: 1
   };
 
@@ -141,6 +190,7 @@ class CircleSlider extends Component {
     const rotate = this.state.rotate - 90;
     this.setState({
       count: this.state.count + 1,
+      noFadeOut: false,
       rotate
     });
   };
@@ -149,43 +199,48 @@ class CircleSlider extends Component {
     const rotate = this.state.rotate + 90;
     this.setState({
       count: this.state.count - 1,
+      noFadeOut: false,
       rotate
     });
   };
 
   render() {
     return (
-      <Slider>
+      <Slider size={this.props.size} speed={this.props.speed}>
         <nav>
           <PrevButton type="button" onClick={this.prevRotate} />
           <NextButton type="button" onClick={this.nextRotate} />
         </nav>
 
-        <Foreground colorCenter={this.props.colorCenter} />
+        <CenterCircle color={this.props.centerCircleColor} />
         <Wrap rotate={this.state.rotate}>
           <BoxOne
-            colorOne={this.props.colorOne}
+            color={this.props.color1}
+            noFadeOut={this.state.noFadeOut}
             count={Math.abs(this.state.count % 2)}
           >
-            <span>{this.props.headingOne}</span>
+            <span>{this.props.heading1}</span>
           </BoxOne>
           <BoxTwo
-            colorTwo={this.props.colorTwo}
+            color={this.props.color2}
+            noFadeOut={this.state.noFadeOut}
             count={Math.abs(this.state.count % 2)}
           >
-            <span>{this.props.headingTwo}</span>
+            <span>{this.props.heading2}</span>
           </BoxTwo>
           <BoxThree
-            colorThree={this.props.colorThree}
+            color={this.props.color3}
+            noFadeOut={this.state.noFadeOut}
             count={Math.abs(this.state.count % 2)}
           >
-            <span>{this.props.headingThree}</span>
+            <span>{this.props.heading3}</span>
           </BoxThree>
           <BoxFour
-            colorFour={this.props.colorFour}
+            color={this.props.color4}
+            noFadeOut={this.state.noFadeOut}
             count={Math.abs(this.state.count % 2)}
           >
-            <span>{this.props.headingFour}</span>
+            <span>{this.props.heading4}</span>
           </BoxFour>
         </Wrap>
       </Slider>
