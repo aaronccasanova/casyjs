@@ -113,7 +113,17 @@ const Buttons = () => {
           />
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/NextButton">
-          <CircleSlider />
+          <CircleSlider
+            headingOne="Rise"
+            headingTwo="And"
+            headingThree="Shine"
+            headingFour="CPComponents"
+            colorOne="#77B395"
+            colorTwo="#4B956F"
+            colorThree="#77B395"
+            colorFour="#4B956F"
+            colorCenter="#c5a452"
+          />
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>

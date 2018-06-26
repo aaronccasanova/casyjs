@@ -59,7 +59,7 @@ const Foreground = styled.div`
   transform: translate(-50%, -50%);
   z-index: 9999;
   border-radius: 50%;
-  background: #dee1b6;
+  background: ${props => (props.colorCenter ? props.colorCenter : '#dee1b6')};
   width: calc(var(--width) / 3);
   height: calc(var(--width) / 3);
 `;
@@ -95,35 +95,39 @@ const Box = css`
 `;
 
 const BoxOne = styled.div`
+  order: 1;
   ${Box};
-  background: #73c8a9;
+  background: ${props => (props.colorOne ? props.colorOne : '#73c8a9')};
   span {
     color: ${props => (props.count === 1 ? 'white' : 'transparent')};
     transform: rotate(-45deg);
   }
 `;
 const BoxTwo = styled.div`
+  order: 2;
   ${Box};
-  background: #bd5532;
+  background: ${props => (props.colorTwo ? props.colorTwo : '#bd5532')};
   span {
     color: ${props => (props.count === 0 ? 'white' : 'transparent')};
     transform: rotate(45deg);
   }
 `;
 const BoxThree = styled.div`
+  order: 4;
   ${Box};
-  background: #e1b866;
-  span {
-    color: ${props => (props.count === 0 ? 'white' : 'transparent')};
-    transform: rotate(-135deg);
-  }
-`;
-const BoxFour = styled.div`
-  ${Box};
-  background: #373b44;
+  background: ${props => (props.colorThree ? props.colorThree : '#e1b866')};
   span {
     color: ${props => (props.count === 1 ? 'white' : 'transparent')};
     transform: rotate(135deg);
+  }
+`;
+const BoxFour = styled.div`
+  order: 3;
+  ${Box};
+  background: ${props => (props.colorFour ? props.colorFour : '#373b44')};
+  span {
+    color: ${props => (props.count === 0 ? 'white' : 'transparent')};
+    transform: rotate(-135deg);
   }
 `;
 
@@ -134,7 +138,7 @@ class CircleSlider extends Component {
   };
 
   nextRotate = () => {
-    const rotate = this.state.rotate + 90;
+    const rotate = this.state.rotate - 90;
     this.setState({
       count: this.state.count + 1,
       rotate
@@ -142,7 +146,7 @@ class CircleSlider extends Component {
   };
 
   prevRotate = () => {
-    const rotate = this.state.rotate - 90;
+    const rotate = this.state.rotate + 90;
     this.setState({
       count: this.state.count - 1,
       rotate
@@ -157,19 +161,31 @@ class CircleSlider extends Component {
           <NextButton type="button" onClick={this.nextRotate} />
         </nav>
 
-        <Foreground />
+        <Foreground colorCenter={this.props.colorCenter} />
         <Wrap rotate={this.state.rotate}>
-          <BoxOne count={Math.abs(this.state.count % 2)}>
-            <span>hello</span>
+          <BoxOne
+            colorOne={this.props.colorOne}
+            count={Math.abs(this.state.count % 2)}
+          >
+            <span>{this.props.headingOne}</span>
           </BoxOne>
-          <BoxTwo count={Math.abs(this.state.count % 2)}>
-            <span>hello</span>
+          <BoxTwo
+            colorTwo={this.props.colorTwo}
+            count={Math.abs(this.state.count % 2)}
+          >
+            <span>{this.props.headingTwo}</span>
           </BoxTwo>
-          <BoxThree count={Math.abs(this.state.count % 2)}>
-            <span>hello</span>
+          <BoxThree
+            colorThree={this.props.colorThree}
+            count={Math.abs(this.state.count % 2)}
+          >
+            <span>{this.props.headingThree}</span>
           </BoxThree>
-          <BoxFour count={Math.abs(this.state.count % 2)}>
-            <span>hello</span>
+          <BoxFour
+            colorFour={this.props.colorFour}
+            count={Math.abs(this.state.count % 2)}
+          >
+            <span>{this.props.headingFour}</span>
           </BoxFour>
         </Wrap>
       </Slider>
