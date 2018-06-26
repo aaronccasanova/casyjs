@@ -14,6 +14,7 @@ import GrowingLoader from './../../LoaderComponents/GrowingLoader';
 import DomeSwitchButton from './../../ButtonComponents/DomeSwitchButton/DomeSwitchButton';
 import NextButton from '../../ButtonComponents/NextButton/NextButton';
 import ThumbnailSlider from '../../ButtonComponents/ThumbnailSlider/ThumbnailSlider';
+import CircleSlider from '../../ButtonComponents/CircleSlider/CircleSlider';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -110,6 +111,9 @@ const Buttons = () => {
               'https://cdn.rawgit.com/huijing/filerepo/gh-pages/lw5.jpg'
             ]}
           />
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard id="Buttons/NextButton">
+          <CircleSlider />
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>
