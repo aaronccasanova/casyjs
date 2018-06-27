@@ -10,11 +10,12 @@ import DarkenButtonGroup from '../../ButtonComponents/DarkenButtonGroup/DarkenBu
 import OutlineButtonGroup from '../../ButtonComponents/OutlineButtonGroup/OutlineButtonGroup';
 import SlideArrowButton from '../../ButtonComponents/SlideArrowButton/SlideArrowButton';
 import AniColorLink from './../../LinkComponents/AniColorLink';
-import GrowingLoader from './../../LoaderComponents/GrowingLoader';
+import GrowingLoader from '../../LoaderComponents/GrowingLoader/GrowingLoader';
 import DomeSwitchButton from './../../ButtonComponents/DomeSwitchButton/DomeSwitchButton';
 import NextButton from '../../ButtonComponents/NextButton/NextButton';
 import ThumbnailSlider from '../../ButtonComponents/ThumbnailSlider/ThumbnailSlider';
 import CircleSlider from '../../ButtonComponents/CircleSlider/CircleSlider';
+import SpinningBorder from '../../LoaderComponents/SpinningBorder/SpinningBorder';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -126,32 +127,9 @@ const Buttons = () => {
             color4="#459393"
             centerCircleColor="#176C6C"
           />
-          {/* <CircleSlider
-            size="80vw"
-            speed="700ms"
-            heading1="Rise"
-            heading2="And"
-            heading3="Shine"
-            heading4="Love"
-            color1="#D3AC47"
-            color2="#D39547"
-            color3="#D3AC47"
-            color4="#D39547"
-            centerCircleColor="#4F7E9C"
-          /> */}
-          {/* <CircleSlider
-            size="80vw"
-            speed="700ms"
-            heading1="Whose"
-            heading2="Got"
-            heading3="The"
-            heading4="Herb"
-            color1="#77B395"
-            color2="#4B956F"
-            color3="#77B395"
-            color4="#4B956F"
-            centerCircleColor="#c5a452"
-          /> */}
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard id="Buttons/NextButton">
+          <SpinningBorder />
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>
