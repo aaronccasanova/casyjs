@@ -17,6 +17,7 @@ import ThumbnailSlider from '../../ButtonComponents/ThumbnailSlider/ThumbnailSli
 import CircleSlider from '../../ButtonComponents/CircleSlider/CircleSlider';
 import SpinningBorder from '../../LoaderComponents/SpinningBorder/SpinningBorder';
 import TexturedLink from './../../ButtonComponents/TexturedLink/TexturedLink';
+import CircleSlideLink from './../../ButtonComponents/CircleSlideLink/CircleSlideLink';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -143,6 +144,11 @@ const Buttons = () => {
           <TexturedLink href="http://www.casyjs.com">
             copypastecomponents.com
           </TexturedLink>
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard id="Buttons/NextButton">
+          <CircleSlideLink href="http://www.casyjs.com">
+            copypastecomponents.com
+          </CircleSlideLink>
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>
