@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 
 const Wrapper = styled.div`
+  /* ---- CSS Variables Section ----- */
+  --color: ${props => (props.color ? props.color : '#ffab9d')};
+  --size: ${props => (props.size ? props.size : '50px')};
+  /* -------------------------------- */
   font-family: Avenir, sans-serif;
   color: #111;
 `;
@@ -9,28 +13,31 @@ const Wrapper = styled.div`
 const A = styled.a`
   text-decoration: none;
   color: inherit;
-
-  position: relative;
-  margin: auto;
-  padding: 19px 22px;
   transition: all 0.2s ease;
+  position: relative;
+
+  padding: calc(var(--size) / 8) calc(var(--size) / 3.5);
+  display: flex;
+  align-items: center;
 
   &::before {
     content: '';
+    display: inline-block;
     position: absolute;
-    top: 0;
     left: 0;
-    display: block;
-    border-radius: 28px;
-    background: rgba(255, 171, 157, 0.5);
-    width: 56px;
-    height: 56px;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: calc(var(--size) / 2);
+    background: var(--color);
+    opacity: 0.6;
+    width: var(--size);
+    height: var(--size);
     transition: all 0.3s ease;
   }
 
   &:hover::before {
     width: 100%;
-    background: #ffab9d;
+    opacity: 1;
   }
 
   /* &:active {
@@ -39,41 +46,35 @@ const A = styled.a`
 `;
 
 const Text = styled.span`
+  white-space: nowrap;
+  display: inline-block;
   position: relative;
-  font-size: 16px;
-  line-height: 18px;
+  font-size: calc(var(--size) / 3.2);
   font-weight: 900;
-  letter-spacing: 0.25em;
+  letter-spacing: calc(var(--size) / 12.5);
   text-transform: uppercase;
-  vertical-align: middle;
 `;
 
-const SVGArrow = styled.svg`
-  position: relative;
-  top: 0;
-  margin-left: 10px;
-  fill: none;
-  stroke-linecap: round;
-  stroke-linejoin: round;
-  stroke: #111;
-  stroke-width: 2;
-  transform: translateX(-5px);
-  transition: all 0.3s ease;
+const Arrow = styled.span`
+  font-size: calc(var(--size) / 2);
+  display: inline-block;
+  margin-left: calc(var(--size) / 3.5);
+  transform: translate(-5px, -10%);
+  transition: transform 0.3s ease;
 
   ${A}:hover & {
-    transform: translateX(0);
+    transform: translate(0, -10%);
   }
 `;
 
-const CircleSlideLink = () => {
+const CircleSlideLink = props => {
   return (
-    <Wrapper>
-      <A href="http://www.casyjs.com" class="cta">
-        <Text>Click me</Text>
-        <SVGArrow width="13px" height="10px" viewBox="0 0 13 10">
-          <path d="M1,5 L11,5" />
-          <polyline points="8 1 12 5 8 9" />
-        </SVGArrow>
+    <Wrapper color={props.priColor} size={props.size}>
+      <A href={props.href} target="_blank">
+        <Text>{props.children}</Text>
+        <Arrow role="img" aria-label="Arrow">
+          ↠
+        </Arrow>
       </A>
     </Wrapper>
   );

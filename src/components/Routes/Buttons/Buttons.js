@@ -146,8 +146,12 @@ const Buttons = () => {
           </TexturedLink>
         </MasterCopyPasteCard>
         <MasterCopyPasteCard id="Buttons/NextButton">
-          <CircleSlideLink href="http://www.casyjs.com">
-            copypastecomponents.com
+          <CircleSlideLink
+            priColor="var(--cp-sec-color)"
+            size="45px"
+            href="http://www.casyjs.com"
+          >
+            click me
           </CircleSlideLink>
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
