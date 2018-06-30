@@ -16,6 +16,7 @@ import NextButton from '../../ButtonComponents/NextButton/NextButton';
 import ThumbnailSlider from '../../ButtonComponents/ThumbnailSlider/ThumbnailSlider';
 import CircleSlider from '../../ButtonComponents/CircleSlider/CircleSlider';
 import SpinningBorder from '../../LoaderComponents/SpinningBorder/SpinningBorder';
+import TexturedLink from './../../ButtonComponents/TexturedLink/TexturedLink';
 
 const Wrapper = styled.div`
   width: 100%;
@@ -137,6 +138,11 @@ const Buttons = () => {
             size="85px"
             thickness="20px"
           />
+        </MasterCopyPasteCard>
+        <MasterCopyPasteCard id="Buttons/NextButton">
+          <TexturedLink href="http://www.casyjs.com">
+            copypastecomponents.com
+          </TexturedLink>
         </MasterCopyPasteCard>
       </MasterCopyPasteFlexGrid>
     </Wrapper>

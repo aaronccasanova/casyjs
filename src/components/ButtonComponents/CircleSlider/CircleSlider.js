@@ -57,7 +57,7 @@ const CenterCircle = styled.div`
   left: 50%;
   top: 100%;
   transform: translate(-50%, -50%);
-  z-index: 9999;
+  z-index: 999;
   border-radius: 50%;
   background: ${props => (props.color ? props.color : '#dee1b6')};
   width: calc(var(--width) / 3);
