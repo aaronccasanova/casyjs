@@ -102,7 +102,7 @@ const Buttons = () => {
         <MasterCopyPasteCard id="Buttons/NextButton">
           <NextButton left size="75px" color="lightsteelblue" />
         </MasterCopyPasteCard>
-        <MasterCopyPasteCard id="Buttons/NextButton">
+        <MasterCopyPasteCard id="Sliders/ThumbnailSlider">
           <ThumbnailSlider
             height="400px"
             width="100%"
@@ -115,7 +115,7 @@ const Buttons = () => {
             ]}
           />
         </MasterCopyPasteCard>
-        <MasterCopyPasteCard id="Buttons/NextButton">
+        <MasterCopyPasteCard id="Sliders/CircleSlider">
           <CircleSlider
             size="70vw"
             speed="600ms"
@@ -130,7 +130,7 @@ const Buttons = () => {
             centerCircleColor="#176C6C"
           />
         </MasterCopyPasteCard>
-        <MasterCopyPasteCard id="Buttons/NextButton">
+        <MasterCopyPasteCard id="Loaders/SpinningBorder">
           <SpinningBorder
             priColor="#26a69a"
             secColor="#005041"
@@ -140,12 +140,12 @@ const Buttons = () => {
             thickness="20px"
           />
         </MasterCopyPasteCard>
-        <MasterCopyPasteCard id="Buttons/NextButton">
+        <MasterCopyPasteCard id="Links/TexturedLink">
           <TexturedLink href="http://www.casyjs.com">
             copypastecomponents.com
           </TexturedLink>
         </MasterCopyPasteCard>
-        <MasterCopyPasteCard id="Buttons/NextButton">
+        <MasterCopyPasteCard id="Links/CircleSlideLink">
           <CircleSlideLink
             priColor="var(--cp-sec-color)"
             size="45px"
