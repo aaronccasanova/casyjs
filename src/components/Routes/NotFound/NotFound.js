@@ -44,7 +44,7 @@ const SubHeading = styled.h2`
   top: 33%;
 `;
 
-const NotFound = () => {
+const NotFound = props => {
   return (
     <Wrapper>
       <Content>
@@ -52,8 +52,12 @@ const NotFound = () => {
           src="https://images.unsplash.com/photo-1501511795728-df53825d742a?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=ec63be59e881ffa2ed65339c27e4db90&auto=format&fit=crop&w=634&q=80"
           alt="NotFound"
         />
-        <MainHeading>404</MainHeading>
-        <SubHeading>Page Not Found</SubHeading>
+        <MainHeading>
+          {props.errorStatus ? props.errorStatus : '404'}
+        </MainHeading>
+        <SubHeading>
+          {props.errorMessage ? props.errorMessage : 'Page Not Found'}
+        </SubHeading>
       </Content>
     </Wrapper>
   );
