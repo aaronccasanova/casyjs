@@ -200,7 +200,11 @@ const BasicFooter = () => {
           </Link>
         </div>
       </LinkWrap>
-      <Copyright>© 2018 Casy.js All Rights Reserved</Copyright>
+      <Copyright>
+        <a href="https://www.cpcomponents.com" target="_blank">
+          © 2018 Casy.js All Rights Reserved
+        </a>
+      </Copyright>
       <MainLine />
       <HighLine />
       <MidLine />
