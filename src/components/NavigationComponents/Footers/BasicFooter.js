@@ -134,6 +134,10 @@ const Copyright = styled.p`
   transform: translateY(
     calc(20px + (30 - 20) * (100vh - 320px) / (1300 - 320))
   );
+
+  a {
+    text-decoration: none;
+  }
 `;
 
 const MainLine = styled.div`
