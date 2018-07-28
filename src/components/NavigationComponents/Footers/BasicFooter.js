@@ -182,7 +182,8 @@ const BasicFooter = () => {
       <LinkWrap color="Instagram">
         <div>
           <Link
-            href="https://instagram.com/casyjs"
+            href="https://instagram.com/cpcomponents"
+            rel="noopener noreferrer"
             target="_blank"
             color="Instagram"
           >
